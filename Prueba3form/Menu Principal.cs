@@ -137,5 +137,10 @@ namespace Prueba3form
         {
             MessageBox.Show("NOSOTROS NECESITAMOS AYUDA: :-) jajajaj", "AYUDAAAAA", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void MenuPrincipalForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
