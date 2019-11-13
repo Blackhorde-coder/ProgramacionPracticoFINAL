@@ -101,7 +101,7 @@ namespace Prueba3form
 
         private void cargarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CargarClienteForm cc = new CargarClienteForm();
+            ClienteForm cc = new ClienteForm();
             cc.ShowDialog();
         }
 
@@ -145,5 +145,6 @@ namespace Prueba3form
         {
 
         }
+
     }
 }

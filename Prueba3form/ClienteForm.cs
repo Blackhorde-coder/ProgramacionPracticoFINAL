@@ -10,16 +10,31 @@ using System.Windows.Forms;
 
 namespace Prueba3form
 {
-    public partial class CargarClienteForm : Form
+    public partial class ClienteForm : Form
     {
-        public CargarClienteForm()
+        public ClienteForm()
         {
             InitializeComponent();
+            activarbotones(true);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+        private void ClienteForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            activarbotones(false);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            activarbotones(false);
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -64,12 +79,13 @@ namespace Prueba3form
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            limpiarcampos();
+            activarbotones(true);
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-
+            activarbotones(true);
         }
 
         private void limpiarcampos()
@@ -85,7 +101,30 @@ namespace Prueba3form
             txtTelMovil.Text = "";
             rdbFemenino.Checked = false;
             rdbMasculino.Checked = false;
-
         }
+
+        private void activarbotones(bool k)
+        {
+            btnNuevo.Enabled = k;
+            btnEditar.Enabled = k;
+            btnSalir.Enabled = k;
+
+            txtApellido.Enabled = !k;
+            txtNombre.Enabled = !k;
+            listBox1.Enabled = !k;
+            txtDireccion.Enabled = !k;
+            txtDocumento.Enabled = !k;
+            txtTelFijo.Enabled = !k;
+            txtTelMovil.Enabled = !k;
+            txtCodFijo.Enabled = !k;
+            txtCodMovil.Enabled = !k;
+            rdbFemenino.Enabled = !k;
+            rdbMasculino.Enabled = !k;
+            txtBarrio.Enabled = !k;
+            btnCancelar.Enabled = !k;
+            btnGuardar.Enabled = !k;
+        }
+
     }
+    
 }
