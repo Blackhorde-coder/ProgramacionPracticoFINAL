@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clientecls.cs" />
     <Compile Include="manipulationcls.cs" />
+    <Compile Include="mascotacls.cs" />
     <Compile Include="Menu Principal.cs">
       <SubType>Form</SubType>
     </Compile>

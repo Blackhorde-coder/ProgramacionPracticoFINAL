@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prueba3form
 {
-    class Personacls
+    class clientecls
     {
-        
-        string _nombre;
-        string _apellido;
-        string _documento;
-
-
-
     }
 }
