@@ -187,6 +187,7 @@
             this.Controls.Add(this.btnCargar);
             this.Name = "CargarMascotaForm";
             this.Text = "CARGAR MASCOTA";
+            this.Load += new System.EventHandler(this.CargarMascotaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,7 +13,7 @@ namespace Prueba3form
 {
     public partial class MenuPrincipalForm : Form
     {
-        
+      
         public MenuPrincipalForm()
         {
             InitializeComponent();
