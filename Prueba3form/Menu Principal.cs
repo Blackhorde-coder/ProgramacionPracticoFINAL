@@ -135,7 +135,12 @@ namespace Prueba3form
 
         private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("NOSOTROS NECESITAMOS AYUDA: :-) jajajaj XD", "AYUDAAAAA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("NOSOTROS NECESITAMOS AYUDA: :-) jajajaj", "AYUDAAAAA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void MenuPrincipalForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
