@@ -102,7 +102,9 @@ namespace Prueba3form
 
         private void cargarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cargar cliente
+            ClienteForm cc = new ClienteForm();
+            cc.ShowDialog();
+
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,7 +119,10 @@ namespace Prueba3form
 
         private void cargarMascotaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cargar mascota
+
+            CargarMascotaForm cm = new CargarMascotaForm();
+            cm.ShowDialog();
+
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -144,5 +149,6 @@ namespace Prueba3form
         {
             
         }
+
     }
 }

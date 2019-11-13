@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteForm.Designer.cs">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargarMascotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarMascotaForm.Designer.cs">
+      <DependentUpon>CargarMascotaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="clientecls.cs" />
     <Compile Include="manipulationcls.cs" />
     <Compile Include="mascotacls.cs" />
@@ -58,6 +70,12 @@
     <Compile Include="Personacls.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClienteForm.resx">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargarMascotaForm.resx">
+      <DependentUpon>CargarMascotaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu Principal.resx">
       <DependentUpon>Menu Principal.cs</DependentUpon>
     </EmbeddedResource>
