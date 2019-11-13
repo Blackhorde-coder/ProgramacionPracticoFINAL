@@ -1,0 +1,7 @@
+﻿Armar clase personas, clientes:personas, medicos:personas, mascotas, productos, comprobantes?
+
+Armar tablas de la BD... 
+
+Conectar a BD probablemente mascotas y clientes
+
+validaciones
