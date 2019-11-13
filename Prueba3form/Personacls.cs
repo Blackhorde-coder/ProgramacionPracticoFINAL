@@ -8,5 +8,11 @@ namespace Prueba3form
 {
     class Personacls
     {
+        string _nombre;
+        string _apellido;
+        string _documento;
+
+
+
     }
 }
