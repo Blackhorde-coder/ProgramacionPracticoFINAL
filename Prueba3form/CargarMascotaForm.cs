@@ -14,8 +14,8 @@ namespace Prueba3form
     {
         manipulationcls bd = new manipulationcls(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Blackhorde\Documents\GitHub\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb");
         const int tam = 1000;
-        mascotacls [] arraymascotas = new mascotacls [tam];
-        clientecls[] arrayclientes = new clientecls[tam];
+        Mascotacls [] arraymascotas = new Mascotacls [tam];
+        Clientecls[] arrayclientes = new Clientecls[tam];
 
 
 
