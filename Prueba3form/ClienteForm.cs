@@ -12,10 +12,15 @@ namespace Prueba3form
 {
     public partial class ClienteForm : Form
     {
+        manipulationcls bd = new manipulationcls(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Blackhorde\Documents\GitHub\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb");
+        const int tam = 1000;
+        Clientecls[] arrayclientes = new Clientecls[tam];
+
         public ClienteForm()
         {
             InitializeComponent();
             activarbotones(true);
+            cargarlalista("cliente");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -85,8 +90,43 @@ namespace Prueba3form
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            Clientecls cli = new Clientecls();
+            cli.Nombre = txtNombre.Text;
+            cli.Apellido = txtApellido.Text;
+            cli.Documento = Convert.ToInt32(txtDocumento.Text);
+            if (rdbFemenino.Checked == true)
+                cli.Sexo = false;
+            else
+                cli.Sexo = true;
+            cli.Direccion1 = txtDireccion.Text;
+            cli.Barrio1 = txtBarrio.Text;
+            cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
+            cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
+            cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
+            cli.Movil = Convert.ToInt32(txtTelMovil.Text);
+
+            string consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
+                                    "('" + cli.Nombre +
+                                    "','" + cli.Apellido +
+                                    "'," + cli.Documento +
+                                    "," + cli.Sexo +
+                                    ",'" + cli.Direccion1 +
+                                    "','" + cli.Barrio1 +
+                                    "'," + cli.Codfijo1 +
+                                    "," + cli.Fijo1 +
+                                    "," + cli.Codmovil +
+                                    "," + cli.Movil +
+                                    ")";
+            bd.modificarbd(consultasql);
+            cargarlalista("cliente");
+
+
+                                  
+
+
             activarbotones(true);
         }
+    
 
         private void limpiarcampos()
         {
@@ -123,6 +163,35 @@ namespace Prueba3form
             txtBarrio.Enabled = !k;
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
+        }
+        private void cargarlalista(string nombretabla)
+        {
+            bd.leertabla(nombretabla);
+            int c = 0;
+            while (bd.Reader.Read())
+            {
+                Clientecls cli = new Clientecls();
+                cli.ClienteID = bd.Reader.GetInt32(0);
+                cli.Nombre = bd.Reader.GetString(1);
+                cli.Apellido = bd.Reader.GetString(2);
+                cli.Documento = bd.Reader.GetInt32(3);
+                cli.Sexo = bd.Reader.GetBoolean(4);
+                cli.Direccion1 = bd.Reader.GetString(5);
+                cli.Barrio1 = bd.Reader.GetString(6);
+                cli.Codfijo1 = bd.Reader.GetInt32(7);
+                cli.Fijo1 = bd.Reader.GetInt32(8);
+                cli.Codmovil = bd.Reader.GetInt32(9);
+                cli.Movil = bd.Reader.GetInt32(10);
+                arrayclientes[c] = cli;
+                c++;
+            }
+            bd.Reader.Close();
+            bd.desconectar();
+            listBox1.Items.Clear();
+            for (int i = 0; i < c; i++)
+            {
+                listBox1.Items.Add(arrayclientes[i].Apellido + " " + arrayclientes[i].Nombre);
+            }
         }
 
     }

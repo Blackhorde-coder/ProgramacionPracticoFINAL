@@ -49,6 +49,15 @@ namespace Prueba3form
             m.Descripcion = txtDescripcion.Text;
             m.Cliente = arrayclientes[listCliente.SelectedIndex];
             //cargar en la basde de datos
+            string consultasql = "insert into mascota (Nombre, fecha_nac, tipo, descripcion, cliente_id) values " +
+                                  "('" + m.Nombre1 + 
+                                  "','" + m.FecNac + 
+                                  "'," + m.Tipo +
+                                  ",'" + m.Descripcion +
+                                  "'," + m.Cliente.ClienteID + ")";
+            bd.modificarbd(consultasql);
+
+
 
         }
 
