@@ -17,6 +17,7 @@ namespace Prueba3form
         string _connectionstring;
 
         public string Connectionstring { get => _connectionstring; set => _connectionstring = value; }
+        public OleDbDataReader Reader { get => _Reader; set => _Reader = value; }
 
         public manipulationcls()
         {

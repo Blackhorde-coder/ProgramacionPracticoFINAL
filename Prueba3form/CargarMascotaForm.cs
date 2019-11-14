@@ -22,6 +22,8 @@ namespace Prueba3form
         public CargarMascotaForm()
         {
             InitializeComponent();
+            cargarlalista("cliente");
+            cargarcombo(cmbTipo,"tipo_id");
         }
         private void CargarMascotaForm_Load(object sender, EventArgs e)
         {
@@ -40,6 +42,13 @@ namespace Prueba3form
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            Mascotacls m = new Mascotacls();
+            m.Nombre1 = txtNombre.Text;
+            m.FecNac = dtpFechaNac.Value;
+            m.Tipo = cmbTipo.SelectedIndex;
+            m.Descripcion = txtDescripcion.Text;
+            m.Cliente = arrayclientes[listCliente.SelectedIndex];
+            //cargar en la basde de datos
 
         }
 
@@ -55,7 +64,45 @@ namespace Prueba3form
             txtNombre.Text = "";
             cmbTipo.SelectedIndex = -1;
             dtpFechaNac.Value = DateTime.Today;
-
+        }
+        private void cargarlalista(string nombretabla)
+        {
+            bd.leertabla(nombretabla);
+            int c = 0;
+            while (bd.Reader.Read())
+            {
+                Clientecls cli = new Clientecls();
+                cli.ClienteID = bd.Reader.GetInt32(0);
+                cli.Nombre = bd.Reader.GetString(1);
+                cli.Apellido = bd.Reader.GetString(2);
+                cli.Documento = bd.Reader.GetInt32(3);
+                cli.Sexo = bd.Reader.GetBoolean(4);
+                cli.Direccion1 = bd.Reader.GetString(5);
+                cli.Barrio1 = bd.Reader.GetString(6);
+                cli.Codfijo1 = bd.Reader.GetInt32(7);
+                cli.Fijo1 = bd.Reader.GetInt32(8);
+                cli.Codmovil = bd.Reader.GetInt32(9);
+                cli.Movil = bd.Reader.GetInt32(10);
+                arrayclientes[c] = cli;
+                c++;
+            }
+            bd.Reader.Close();
+            bd.desconectar();
+            listCliente.Items.Clear();
+            for (int i = 0; i < c; i++)
+            {
+                listCliente.Items.Add(arrayclientes[i].Apellido + " " + arrayclientes[i].Nombre);
+            }
+        }
+        private void cargarcombo(ComboBox combo, string nomtabla)
+        {
+            DataTable tb = new DataTable();
+            tb = bd.consultartabla(nomtabla);
+            combo.DataSource = tb;
+            combo.ValueMember = tb.Columns[0].ColumnName;
+            combo.DisplayMember = tb.Columns[1].ColumnName;
+            combo.SelectedIndex = 0;
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
