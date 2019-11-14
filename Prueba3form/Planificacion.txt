@@ -9,8 +9,3 @@ validaciones
 hay que hacer herencia y la otra bosta que era como pertenencia jasjajd
 
 Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\mateo\OneDrive\Documentos\GITHUB REPOSITORIOS\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb"
-
-
-sexo true = masculino
-	 false = femenino
-
