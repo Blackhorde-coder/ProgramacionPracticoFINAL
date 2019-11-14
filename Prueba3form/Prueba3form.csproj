@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clientecls.cs" />
     <Compile Include="ClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,8 +59,6 @@
     <Compile Include="CargarMascotaForm.Designer.cs">
       <DependentUpon>CargarMascotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="clientecls.cs" />
-    <Compile Include="Clientecls.cs" />
     <Compile Include="manipulationcls.cs" />
     <Compile Include="Mascotacls.cs" />
     <Compile Include="Menu Principal.cs">

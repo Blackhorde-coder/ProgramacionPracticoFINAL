@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prueba3form
 {
-    class Clientecls:Personacls
+    class Clientecls : Personacls
     {
         private string _direccion;
         private int _nro;
@@ -23,7 +23,7 @@ namespace Prueba3form
             _codfijo = 0;
             _fijo = 0;
         }
-        public Clientecls(int IDCLIENTE, string nombre, string apellido, int documento, bool sexo, string direccion, int nro, string barrio, int codfijo, int fijo, int codmovil, int movil):base( nombre, apellido, documento, sexo, direccion, nro, barrio, codfijo,fijo, codmovil, movil)
+        public Clientecls(int IDCLIENTE, string nombre, string apellido, int documento, bool sexo, string direccion, int nro, string barrio, int codfijo, int fijo, int codmovil, int movil) : base(nombre, apellido, documento, sexo, direccion, nro, barrio, codfijo, fijo, codmovil, movil)
         {
             _clienteID = IDCLIENTE;
             _direccion = direccion;
