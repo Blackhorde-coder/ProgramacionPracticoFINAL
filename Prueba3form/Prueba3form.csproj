@@ -59,7 +59,6 @@
       <DependentUpon>CargarMascotaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="clientecls.cs" />
-    <Compile Include="Clientecls.cs" />
     <Compile Include="manipulationcls.cs" />
     <Compile Include="Mascotacls.cs" />
     <Compile Include="Menu Principal.cs">
