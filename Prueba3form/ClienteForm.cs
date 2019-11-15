@@ -180,22 +180,29 @@ namespace Prueba3form
 
             }
         }
-        private void validaciones()
+        private bool validaciones()
         {
             if (txtNombre.Text == "")
             {
                 MessageBox.Show("CARGAR NOMBRE");
                 txtNombre.Focus();
+                return false;
             }
             if (txtApellido.Text == "")
             {
                 MessageBox.Show("CARGAR APELLIDO");
                 txtApellido.Focus();
+                return false;
             }
             if (txtDocumento.Text == "")
             {
                 MessageBox.Show("CARGAR DOCUMENTO");
                 txtDocumento.Focus();
+                return false;
+            }
+            if (rdbFemenino.Checked == false && rdbMasculino.Checked == false)
+            {
+                MessageBox.Show("");
             }
             if (txtCodFijo.Text == "" )
             {
@@ -205,6 +212,7 @@ namespace Prueba3form
             {
 
             }
+            return true;
         }
 
 
