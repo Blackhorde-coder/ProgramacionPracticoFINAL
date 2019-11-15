@@ -30,6 +30,13 @@ namespace Prueba3form
         }
         private void ClienteForm_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnNuevo, "NUEVO CLIENTE");
+            toolTip.SetToolTip(btnEditar, "EDITAR CLIENTE");
+            toolTip.SetToolTip(btnEliminar, "ELIMINAR REGISTRO");
+            toolTip.SetToolTip(btnCancelar, "CANCELAR");
+            toolTip.SetToolTip(btnSalir, "SALIR");
+            toolTip.SetToolTip(btnGuardar, "GUARDAR CAMBIOS");
 
         }
 
@@ -88,73 +95,66 @@ namespace Prueba3form
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult=(MessageBox.Show("¿ESTA SEGURO? LOS CAMBIOS NO SE GUARDARAN", "CANCELAR", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk));
-            if (DialogResult == DialogResult.Yes)
-            {
-                limpiarcampos();
-                activarbotones(true);
-            }        
+            limpiarcampos();
+            activarbotones(true);      
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
             Clientecls cli = new Clientecls();
-            string consultasql;
-            cli.Nombre = txtNombre.Text;
-            cli.Apellido = txtApellido.Text;
-            cli.Documento = Convert.ToInt32(txtDocumento.Text);
-            if (rdbFemenino.Checked == true)
-                cli.Sexo = false;
-            else
-                cli.Sexo = true;
-            cli.Direccion1 = txtDireccion.Text;
-            cli.Barrio1 = txtBarrio.Text;
-            cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
-            cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
-            cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
-            cli.Movil = Convert.ToInt32(txtTelMovil.Text);
-            if (isnew == true)
+            if (validaciones() == true)
             {
-
-                consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
-                                        "('" + cli.Nombre +
-                                        "','" + cli.Apellido +
-                                        "'," + cli.Documento +
-                                        "," + cli.Sexo +
-                                        ",'" + cli.Direccion1 +
-                                        "','" + cli.Barrio1 +
-                                        "'," + cli.Codfijo1 +
-                                        "," + cli.Fijo1 +
-                                        "," + cli.Codmovil +
-                                        "," + cli.Movil +
-                                        ")";
-            }
-            else
-            {
-
-                consultasql = "update cliente set " +
-                                "nombre=" + cli.Nombre +
-                                "apellido=" + cli.Apellido +
-                                "dni=" + cli.Documento +
-                                "sexo=" + cli.Sexo +
-                                "direccion=" + cli.Direccion1 +
-                                "barrio=" + cli.Barrio1 +
-                                "cod_area=" + cli.Codfijo1 +
-                                "fijo=" + cli.Fijo1 +
-                                "cod_area_mov=" + cli.Codmovil +
-                                "movil=" + cli.Movil + " " +
-                                "where= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
-
+                    string consultasql;
+                cli.Nombre = txtNombre.Text;
+                cli.Apellido = txtApellido.Text;
+                cli.Documento = Convert.ToInt32(txtDocumento.Text);
+                if (rdbFemenino.Checked == true)
+                    cli.Sexo = false;
+                else
+                    cli.Sexo = true;
+                cli.Direccion1 = txtDireccion.Text;
+                cli.Barrio1 = txtBarrio.Text;
+                cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
+                cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
+                cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
+                cli.Movil = Convert.ToInt32(txtTelMovil.Text);
+                if (isnew == true)
+                {
+                    consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
+                                            "('" + cli.Nombre +
+                                            "','" + cli.Apellido +
+                                            "'," + cli.Documento +
+                                            "," + cli.Sexo +
+                                            ",'" + cli.Direccion1 +
+                                            "','" + cli.Barrio1 +
+                                            "'," + cli.Codfijo1 +
+                                            "," + cli.Fijo1 +
+                                            "," + cli.Codmovil +
+                                            "," + cli.Movil +
+                                            ")";
+                    bd.modificarbd(consultasql);
+                    activarbotones(true);
+                }
+                else
+                {
+                    consultasql = "update cliente set " +
+                                    "nombre=" + cli.Nombre +
+                                    "apellido=" + cli.Apellido +
+                                    "dni=" + cli.Documento +
+                                    "sexo=" + cli.Sexo +
+                                    "direccion=" + cli.Direccion1 +
+                                    "barrio=" + cli.Barrio1 +
+                                    "cod_area=" + cli.Codfijo1 +
+                                    "fijo=" + cli.Fijo1 +
+                                    "cod_area_mov=" + cli.Codmovil +
+                                    "movil=" + cli.Movil + " " +
+                                    "where= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
+                    bd.modificarbd(consultasql);
+                    activarbotones(true);
+                }
             }
             limpiarcampos();
-            bd.modificarbd(consultasql);
             cargarlalista("cliente");
-
-
-                                  
-
-
-            activarbotones(true);
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -202,17 +202,23 @@ namespace Prueba3form
             }
             if (rdbFemenino.Checked == false && rdbMasculino.Checked == false)
             {
-                MessageBox.Show("");
+                MessageBox.Show("SELECCIONE SEXO");
+                return false;
             }
-            if (txtCodFijo.Text == "" )
+            if ((txtCodFijo.Text != "" && txtTelFijo.Text == "") || (txtTelFijo.Text != "" && txtCodFijo.Text==""))
             {
-                
+                MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodFijo.Focus();
+                return false;
             }
-            if (txtTelFijo.Text == "")
+            if ((txtCodMovil.Text != "" && txtTelMovil.Text == "") || (txtCodMovil.Text == "" && txtTelMovil.Text != ""))
             {
-
+                MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodMovil.Focus();
+                return false;
             }
-            return true;
+            else
+                return true;
         }
 
 
