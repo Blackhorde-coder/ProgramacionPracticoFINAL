@@ -60,6 +60,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(150, 48);
+            this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(218, 20);
             this.txtNombre.TabIndex = 3;
@@ -67,6 +68,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(150, 74);
+            this.txtApellido.MaxLength = 30;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(218, 20);
             this.txtApellido.TabIndex = 4;
@@ -74,13 +76,16 @@
             // txtDocumento
             // 
             this.txtDocumento.Location = new System.Drawing.Point(150, 123);
+            this.txtDocumento.MaxLength = 10;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(218, 20);
             this.txtDocumento.TabIndex = 5;
+            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(150, 149);
+            this.txtDireccion.MaxLength = 30;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(218, 20);
             this.txtDireccion.TabIndex = 6;
@@ -89,6 +94,7 @@
             // txtBarrio
             // 
             this.txtBarrio.Location = new System.Drawing.Point(150, 175);
+            this.txtBarrio.MaxLength = 30;
             this.txtBarrio.Name = "txtBarrio";
             this.txtBarrio.Size = new System.Drawing.Size(218, 20);
             this.txtBarrio.TabIndex = 7;
@@ -97,10 +103,12 @@
             // txtTelFijo
             // 
             this.txtTelFijo.Location = new System.Drawing.Point(255, 201);
+            this.txtTelFijo.MaxLength = 15;
             this.txtTelFijo.Name = "txtTelFijo";
             this.txtTelFijo.Size = new System.Drawing.Size(113, 20);
             this.txtTelFijo.TabIndex = 8;
             this.txtTelFijo.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.txtTelFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label1
             // 
@@ -163,10 +171,12 @@
             // txtTelMovil
             // 
             this.txtTelMovil.Location = new System.Drawing.Point(255, 227);
+            this.txtTelMovil.MaxLength = 15;
             this.txtTelMovil.Name = "txtTelMovil";
             this.txtTelMovil.Size = new System.Drawing.Size(113, 20);
             this.txtTelMovil.TabIndex = 13;
             this.txtTelMovil.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.txtTelMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label7
             // 
@@ -211,16 +221,20 @@
             // txtCodFijo
             // 
             this.txtCodFijo.Location = new System.Drawing.Point(150, 201);
+            this.txtCodFijo.MaxLength = 6;
             this.txtCodFijo.Name = "txtCodFijo";
             this.txtCodFijo.Size = new System.Drawing.Size(78, 20);
             this.txtCodFijo.TabIndex = 18;
+            this.txtCodFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtCodMovil
             // 
             this.txtCodMovil.Location = new System.Drawing.Point(150, 227);
+            this.txtCodMovil.MaxLength = 6;
             this.txtCodMovil.Name = "txtCodMovil";
             this.txtCodMovil.Size = new System.Drawing.Size(78, 20);
             this.txtCodMovil.TabIndex = 19;
+            this.txtCodMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label9
             // 

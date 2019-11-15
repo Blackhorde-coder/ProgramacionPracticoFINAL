@@ -37,6 +37,7 @@ namespace Prueba3form
         {
             activarbotones(false);
             isnew = true;
+            listBox1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -87,8 +88,12 @@ namespace Prueba3form
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            limpiarcampos();
-            activarbotones(true);
+            DialogResult=(MessageBox.Show("¿ESTA SEGURO? LOS CAMBIOS NO SE GUARDARAN", "CANCELAR", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk));
+            if (DialogResult == DialogResult.Yes)
+            {
+                limpiarcampos();
+                activarbotones(true);
+            }        
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -141,6 +146,7 @@ namespace Prueba3form
                                 "where= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
 
             }
+            limpiarcampos();
             bd.modificarbd(consultasql);
             cargarlalista("cliente");
 
@@ -176,7 +182,29 @@ namespace Prueba3form
         }
         private void validaciones()
         {
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("CARGAR NOMBRE");
+                txtNombre.Focus();
+            }
+            if (txtApellido.Text == "")
+            {
+                MessageBox.Show("CARGAR APELLIDO");
+                txtApellido.Focus();
+            }
+            if (txtDocumento.Text == "")
+            {
+                MessageBox.Show("CARGAR DOCUMENTO");
+                txtDocumento.Focus();
+            }
+            if (txtCodFijo.Text == "" )
+            {
+                
+            }
+            if (txtTelFijo.Text == "")
+            {
 
+            }
         }
 
 
@@ -244,6 +272,16 @@ namespace Prueba3form
             {
                 listBox1.Items.Add(arrayclientes[i].Apellido + " " + arrayclientes[i].Nombre);
             }
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+                e.Handled = false;
+            else if (e.KeyChar == (char)Keys.Back)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
 
 
