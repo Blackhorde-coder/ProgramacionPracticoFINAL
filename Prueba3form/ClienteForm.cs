@@ -15,7 +15,9 @@ namespace Prueba3form
         manipulationcls bd = new manipulationcls(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Blackhorde\Documents\GitHub\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb");
         const int tam = 1000;
         Clientecls[] arrayclientes = new Clientecls[tam];
+        Mascotacls[] arraymascotas = new Mascotacls[tam];
         bool isnew;
+      
 
         public ClienteForm()
         {
@@ -45,6 +47,7 @@ namespace Prueba3form
             activarbotones(false);
             isnew = true;
             listBox1.Enabled = false;
+            btnEliminar.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -138,17 +141,17 @@ namespace Prueba3form
                 else
                 {
                     consultasql = "update cliente set " +
-                                    "nombre=" + cli.Nombre +
-                                    "apellido=" + cli.Apellido +
-                                    "dni=" + cli.Documento +
-                                    "sexo=" + cli.Sexo +
-                                    "direccion=" + cli.Direccion1 +
-                                    "barrio=" + cli.Barrio1 +
-                                    "cod_area=" + cli.Codfijo1 +
-                                    "fijo=" + cli.Fijo1 +
-                                    "cod_area_mov=" + cli.Codmovil +
+                                    "nombre='" + cli.Nombre + "',"+
+                                    "apellido='" + cli.Apellido + "',"+
+                                    "dni=" + cli.Documento + ","+
+                                    "sexo=" + cli.Sexo + ","+
+                                    "direccion='" + cli.Direccion1 +"',"+
+                                    "barrio='" + cli.Barrio1 + "',"+
+                                    "cod_area=" + cli.Codfijo1 +","+
+                                    "fijo=" + cli.Fijo1 +","+
+                                    "cod_area_mov=" + cli.Codmovil +","+
                                     "movil=" + cli.Movil + " " +
-                                    "where= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
+                                    "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
                     bd.modificarbd(consultasql);
                     activarbotones(true);
                 }
@@ -257,6 +260,7 @@ namespace Prueba3form
             txtBarrio.Enabled = !k;
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
+            btnEliminar.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
         {
@@ -287,6 +291,28 @@ namespace Prueba3form
                 listBox1.Items.Add(arrayclientes[i].Apellido + " " + arrayclientes[i].Nombre);
             }
         }
+        private void arraymas()
+        {
+            bd.leertabla("mascota");
+            int cm = 0;
+            while (bd.Reader.Read())
+            {
+                Mascotacls m = new Mascotacls();
+                m.Id = bd.Reader.GetInt32(0);
+                m.Nombre1 = bd.Reader.GetString(1);
+                m.FecNac = bd.Reader.GetDateTime(2);
+                m.Tipo = bd.Reader.GetInt32(3);
+                m.Descripcion = bd.Reader.GetString(4);
+                Clientecls c = new Clientecls();
+                m.Cliente = c;
+                m.Cliente.ClienteID = bd.Reader.GetInt32(5);
+                arraymascotas[cm] = m;
+                cm++;
+            }
+            bd.Reader.Close();
+            bd.desconectar();
+
+        }
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -298,7 +324,29 @@ namespace Prueba3form
                 e.Handled = true;
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int sel = listBox1.SelectedIndex;
+            arraymas();//llamado al metodo array mascotas
+            int c = arraymascotas.Count(x=>x!=null);//contador de elementos del array mascotas
+            int f = arrayclientes.Count(x => x != null);//no hace falta
 
+            for (int i = 0; i <c ; i++)
+            {
+                if (arrayclientes[sel].ClienteID == arraymascotas[i].Cliente.ClienteID)
+                {
+                    MessageBox.Show("Este cliente tiene la mascota " + arraymascotas[i].Nombre1 + " asociada, elimine primero la mascota para poder eliminar el cliente","CUIDADO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string eliminar = "Delete from cliente where id= " + arrayclientes[sel].ClienteID;
+                    bd.modificarbd(eliminar);
+                    cargarlalista("cliente");
+                    limpiarcampos();
+                }
+            }
+   
+        }
     }
     
 }

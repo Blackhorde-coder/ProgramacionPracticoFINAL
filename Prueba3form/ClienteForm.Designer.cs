@@ -61,53 +61,59 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(150, 48);
             this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(218, 20);
+            this.txtNombre.Size = new System.Drawing.Size(218, 22);
             this.txtNombre.TabIndex = 3;
             // 
             // txtApellido
             // 
+            this.txtApellido.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(150, 74);
             this.txtApellido.MaxLength = 30;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(218, 20);
+            this.txtApellido.Size = new System.Drawing.Size(218, 22);
             this.txtApellido.TabIndex = 4;
             // 
             // txtDocumento
             // 
+            this.txtDocumento.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.Location = new System.Drawing.Point(150, 123);
             this.txtDocumento.MaxLength = 10;
             this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(218, 20);
+            this.txtDocumento.Size = new System.Drawing.Size(218, 22);
             this.txtDocumento.TabIndex = 5;
             this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtDireccion
             // 
+            this.txtDireccion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(150, 149);
             this.txtDireccion.MaxLength = 30;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(218, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(218, 22);
             this.txtDireccion.TabIndex = 6;
             this.txtDireccion.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtBarrio
             // 
+            this.txtBarrio.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarrio.Location = new System.Drawing.Point(150, 175);
             this.txtBarrio.MaxLength = 30;
             this.txtBarrio.Name = "txtBarrio";
-            this.txtBarrio.Size = new System.Drawing.Size(218, 20);
+            this.txtBarrio.Size = new System.Drawing.Size(218, 22);
             this.txtBarrio.TabIndex = 7;
             this.txtBarrio.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txtTelFijo
             // 
+            this.txtTelFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelFijo.Location = new System.Drawing.Point(255, 201);
             this.txtTelFijo.MaxLength = 15;
             this.txtTelFijo.Name = "txtTelFijo";
-            this.txtTelFijo.Size = new System.Drawing.Size(113, 20);
+            this.txtTelFijo.Size = new System.Drawing.Size(113, 22);
             this.txtTelFijo.TabIndex = 8;
             this.txtTelFijo.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.txtTelFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
@@ -115,18 +121,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 51);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "NOMBRE";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 204);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 204);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.Size = new System.Drawing.Size(98, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "TELEFONO FIJO";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -134,18 +142,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 77);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(77, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "APELLIDO";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 126);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(115, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(29, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "DNI";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -153,9 +163,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(78, 152);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(71, 152);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 10;
             this.label5.Text = "DIRECCION";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -163,19 +174,21 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(94, 178);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(90, 178);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(54, 15);
             this.label6.TabIndex = 12;
             this.label6.Text = "BARRIO";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtTelMovil
             // 
+            this.txtTelMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelMovil.Location = new System.Drawing.Point(255, 227);
             this.txtTelMovil.MaxLength = 15;
             this.txtTelMovil.Name = "txtTelMovil";
-            this.txtTelMovil.Size = new System.Drawing.Size(113, 20);
+            this.txtTelMovil.Size = new System.Drawing.Size(113, 22);
             this.txtTelMovil.TabIndex = 13;
             this.txtTelMovil.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             this.txtTelMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
@@ -183,18 +196,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 230);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(31, 230);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.Size = new System.Drawing.Size(113, 15);
             this.label7.TabIndex = 14;
             this.label7.Text = "TELEFONO MOVIL";
             // 
             // rdbMasculino
             // 
             this.rdbMasculino.AutoSize = true;
+            this.rdbMasculino.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMasculino.Location = new System.Drawing.Point(150, 100);
             this.rdbMasculino.Name = "rdbMasculino";
-            this.rdbMasculino.Size = new System.Drawing.Size(88, 17);
+            this.rdbMasculino.Size = new System.Drawing.Size(100, 19);
             this.rdbMasculino.TabIndex = 15;
             this.rdbMasculino.TabStop = true;
             this.rdbMasculino.Text = "MASCULINO";
@@ -203,9 +218,10 @@
             // rdbFemenino
             // 
             this.rdbFemenino.AutoSize = true;
-            this.rdbFemenino.Location = new System.Drawing.Point(241, 100);
+            this.rdbFemenino.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemenino.Location = new System.Drawing.Point(279, 100);
             this.rdbFemenino.Name = "rdbFemenino";
-            this.rdbFemenino.Size = new System.Drawing.Size(81, 17);
+            this.rdbFemenino.Size = new System.Drawing.Size(89, 19);
             this.rdbFemenino.TabIndex = 16;
             this.rdbFemenino.TabStop = true;
             this.rdbFemenino.Text = "FEMENINO";
@@ -214,45 +230,50 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(108, 102);
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(105, 102);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 17;
             this.label8.Text = "SEXO";
             // 
             // txtCodFijo
             // 
+            this.txtCodFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodFijo.Location = new System.Drawing.Point(150, 201);
             this.txtCodFijo.MaxLength = 6;
             this.txtCodFijo.Name = "txtCodFijo";
-            this.txtCodFijo.Size = new System.Drawing.Size(78, 20);
+            this.txtCodFijo.Size = new System.Drawing.Size(78, 22);
             this.txtCodFijo.TabIndex = 18;
             this.txtCodFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtCodMovil
             // 
+            this.txtCodMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodMovil.Location = new System.Drawing.Point(150, 227);
             this.txtCodMovil.MaxLength = 6;
             this.txtCodMovil.Name = "txtCodMovil";
-            this.txtCodMovil.Size = new System.Drawing.Size(78, 20);
+            this.txtCodMovil.Size = new System.Drawing.Size(78, 22);
             this.txtCodMovil.TabIndex = 19;
             this.txtCodMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(239, 230);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(10, 13);
+            this.label9.Size = new System.Drawing.Size(11, 15);
             this.label9.TabIndex = 20;
             this.label9.Text = "-";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(239, 204);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(10, 13);
+            this.label10.Size = new System.Drawing.Size(11, 15);
             this.label10.TabIndex = 21;
             this.label10.Text = "-";
             // 
@@ -291,10 +312,14 @@
             // 
             // listBox1
             // 
+            this.listBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBox1.Enabled = false;
+            this.listBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 19;
             this.listBox1.Location = new System.Drawing.Point(491, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 277);
+            this.listBox1.Size = new System.Drawing.Size(205, 270);
             this.listBox1.TabIndex = 25;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -330,6 +355,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(75, 34);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // ClienteForm
             // 
