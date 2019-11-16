@@ -27,7 +27,10 @@ namespace Prueba3form
         }
         private void CargarMascotaForm_Load(object sender, EventArgs e)
         {
-
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnCargar, "CARGAR MASCOTA");
+            toolTip.SetToolTip(btnCancelar, "CANCELAR CAMBIOS");
+            toolTip.SetToolTip(btnSalir, "SALIR");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -42,6 +45,7 @@ namespace Prueba3form
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            //hacer if para que siempre se tenga q seleccionar un cliente
             Mascotacls m = new Mascotacls();
             m.Nombre1 = txtNombre.Text;
             m.FecNac = dtpFechaNac.Value;
