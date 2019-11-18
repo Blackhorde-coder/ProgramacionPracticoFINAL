@@ -50,13 +50,13 @@ namespace Prueba3form
         public void leertabla(string nombretabla)
         {
             conectar();
-            _command.CommandText = "select * from " + nombretabla + " order by 1";
+            _command.CommandText = "select * from " + nombretabla;
             _Reader = _command.ExecuteReader();
         }
         public DataTable consultartabla(string nombretabla)
         {
             conectar();
-            _command.CommandText = "select * from " + nombretabla + " order by 1";
+            _command.CommandText = "select * from " + nombretabla;
             _table.Load(_command.ExecuteReader());
             desconectar();
             return _table;

@@ -52,7 +52,6 @@ namespace Prueba3form
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.SelectedIndex = 0;
             activarbotones(false);
             isnew = false;
         }
@@ -100,8 +99,7 @@ namespace Prueba3form
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiarcampos();
-            activarbotones(true);
-            btnEliminar.Enabled = false;
+            activarbotones(true);      
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -109,7 +107,7 @@ namespace Prueba3form
             Clientecls cli = new Clientecls();
             if (validaciones() == true)
             {
-                string consultasql;
+                    string consultasql;
                 cli.Nombre = txtNombre.Text;
                 cli.Apellido = txtApellido.Text;
                 cli.Documento = Convert.ToInt32(txtDocumento.Text);
@@ -143,35 +141,29 @@ namespace Prueba3form
                 else
                 {
                     consultasql = "update cliente set " +
-                                    "nombre='" + cli.Nombre + "'," +
-                                    "apellido='" + cli.Apellido + "'," +
-                                    "dni=" + cli.Documento + "," +
-                                    "sexo=" + cli.Sexo + "," +
-                                    "direccion='" + cli.Direccion1 + "'," +
-                                    "barrio='" + cli.Barrio1 + "'," +
-                                    "cod_area=" + cli.Codfijo1 + "," +
-                                    "fijo=" + cli.Fijo1 + "," +
-                                    "cod_area_mov=" + cli.Codmovil + "," +
+                                    "nombre='" + cli.Nombre + "',"+
+                                    "apellido='" + cli.Apellido + "',"+
+                                    "dni=" + cli.Documento + ","+
+                                    "sexo=" + cli.Sexo + ","+
+                                    "direccion='" + cli.Direccion1 +"',"+
+                                    "barrio='" + cli.Barrio1 + "',"+
+                                    "cod_area=" + cli.Codfijo1 +","+
+                                    "fijo=" + cli.Fijo1 +","+
+                                    "cod_area_mov=" + cli.Codmovil +","+
                                     "movil=" + cli.Movil + " " +
                                     "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
                     bd.modificarbd(consultasql);
                     activarbotones(true);
                 }
-                limpiarcampos();
-                cargarlalista("cliente");
             }
-            else
-            {
-
-            }
-            btnEliminar.Enabled = false;
+            limpiarcampos();
+            cargarlalista("cliente");
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int sel = listBox1.SelectedIndex;
             if (sel != -1)
             {
-                btnEliminar.Enabled = true;
                 txtNombre.Text = arrayclientes[sel].Nombre;
                 txtApellido.Text = arrayclientes[sel].Apellido;
                 txtDocumento.Text = Convert.ToString(arrayclientes[sel].Documento);
@@ -195,25 +187,25 @@ namespace Prueba3form
         {
             if (txtNombre.Text == "")
             {
-                MessageBox.Show("CARGAR NOMBRE","FALTANTE");
+                MessageBox.Show("CARGAR NOMBRE");
                 txtNombre.Focus();
                 return false;
             }
             if (txtApellido.Text == "")
             {
-                MessageBox.Show("CARGAR APELLIDO","FALTANTE");
+                MessageBox.Show("CARGAR APELLIDO");
                 txtApellido.Focus();
                 return false;
             }
             if (txtDocumento.Text == "")
             {
-                MessageBox.Show("CARGAR DOCUMENTO","FALTANTE");
+                MessageBox.Show("CARGAR DOCUMENTO");
                 txtDocumento.Focus();
                 return false;
             }
             if (rdbFemenino.Checked == false && rdbMasculino.Checked == false)
             {
-                MessageBox.Show("SELECCIONE SEXO","SEXO");
+                MessageBox.Show("SELECCIONE SEXO");
                 return false;
             }
             if ((txtCodFijo.Text != "" && txtTelFijo.Text == "") || (txtTelFijo.Text != "" && txtCodFijo.Text==""))
@@ -227,18 +219,6 @@ namespace Prueba3form
                 MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
                 txtCodMovil.Focus();
                 return false;
-            }
-            if (txtCodFijo.Text == "" && txtTelFijo.Text == "")
-            {
-                txtCodFijo.Text = Convert.ToString(0);
-                txtTelFijo.Text = Convert.ToString(0);
-                return true;
-            }
-            if (txtCodMovil.Text == "" && txtTelMovil.Text == "")
-            {
-                txtTelMovil.Text = Convert.ToString(0);
-                txtCodMovil.Text = Convert.ToString(0);
-                return true;
             }
             else
                 return true;
@@ -280,6 +260,7 @@ namespace Prueba3form
             txtBarrio.Enabled = !k;
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
+            btnEliminar.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
         {
@@ -288,28 +269,17 @@ namespace Prueba3form
             while (bd.Reader.Read())
             {
                 Clientecls cli = new Clientecls();
-                if (!bd.Reader.IsDBNull(0))
-                    cli.ClienteID = bd.Reader.GetInt32(0);
-                if (!bd.Reader.IsDBNull(1))
-                    cli.Nombre = bd.Reader.GetString(1);
-                if (!bd.Reader.IsDBNull(2))
-                    cli.Apellido = bd.Reader.GetString(2);
-                if (!bd.Reader.IsDBNull(3))
-                    cli.Documento = bd.Reader.GetInt32(3);
-                if (!bd.Reader.IsDBNull(4))
-                    cli.Sexo = bd.Reader.GetBoolean(4);
-                if (!bd.Reader.IsDBNull(5))
-                    cli.Direccion1 = bd.Reader.GetString(5);
-                if (!bd.Reader.IsDBNull(6))
-                    cli.Barrio1 = bd.Reader.GetString(6);
-                if (!bd.Reader.IsDBNull(7))
-                    cli.Codfijo1 = bd.Reader.GetInt32(7);
-                if (!bd.Reader.IsDBNull(8))
-                    cli.Fijo1 = bd.Reader.GetInt32(8);
-                if (!bd.Reader.IsDBNull(9))
-                    cli.Codmovil = bd.Reader.GetInt32(9);
-                if (!bd.Reader.IsDBNull(10))
-                    cli.Movil = bd.Reader.GetInt32(10);
+                cli.ClienteID = bd.Reader.GetInt32(0);
+                cli.Nombre = bd.Reader.GetString(1);
+                cli.Apellido = bd.Reader.GetString(2);
+                cli.Documento = bd.Reader.GetInt32(3);
+                cli.Sexo = bd.Reader.GetBoolean(4);
+                cli.Direccion1 = bd.Reader.GetString(5);
+                cli.Barrio1 = bd.Reader.GetString(6);
+                cli.Codfijo1 = bd.Reader.GetInt32(7);
+                cli.Fijo1 = bd.Reader.GetInt32(8);
+                cli.Codmovil = bd.Reader.GetInt32(9);
+                cli.Movil = bd.Reader.GetInt32(10);
                 arrayclientes[c] = cli;
                 c++;
             }
@@ -328,20 +298,14 @@ namespace Prueba3form
             while (bd.Reader.Read())
             {
                 Mascotacls m = new Mascotacls();
-                if (!bd.Reader.IsDBNull(0))
-                    m.Id = bd.Reader.GetInt32(0);
-                if (!bd.Reader.IsDBNull(1))
-                    m.Nombre1 = bd.Reader.GetString(1);
-                if (!bd.Reader.IsDBNull(2))
-                    m.FecNac = bd.Reader.GetDateTime(2);
-                if (!bd.Reader.IsDBNull(3))
-                    m.Tipo = bd.Reader.GetInt32(3);
-                if (!bd.Reader.IsDBNull(4))
-                    m.Descripcion = bd.Reader.GetString(4);
+                m.Id = bd.Reader.GetInt32(0);
+                m.Nombre1 = bd.Reader.GetString(1);
+                m.FecNac = bd.Reader.GetDateTime(2);
+                m.Tipo = bd.Reader.GetInt32(3);
+                m.Descripcion = bd.Reader.GetString(4);
                 Clientecls c = new Clientecls();
                 m.Cliente = c;
-                if (!bd.Reader.IsDBNull(5))
-                    m.Cliente.ClienteID = bd.Reader.GetInt32(5);
+                m.Cliente.ClienteID = bd.Reader.GetInt32(5);
                 arraymascotas[cm] = m;
                 cm++;
             }
@@ -362,24 +326,22 @@ namespace Prueba3form
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-           
             int sel = listBox1.SelectedIndex;
             arraymas();//llamado al metodo array mascotas
             int c = arraymascotas.Count(x=>x!=null);//contador de elementos del array mascotas
             int f = arrayclientes.Count(x => x != null);//no hace falta
-            
+
             for (int i = 0; i <c ; i++)
             {
                 if (arrayclientes[sel].ClienteID == arraymascotas[i].Cliente.ClienteID)
                 {
-                    MessageBox.Show("ESTE CLIENTE TIENE LA MASCOTA " + arraymascotas[i].Nombre1 + " ASOCIADA, ELIMINE PRIMERO LA MASCOTA PARA PODER ELIMINAR EL CLIENTE","CUIDADO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Este cliente tiene la mascota " + arraymascotas[i].Nombre1 + " asociada, elimine primero la mascota para poder eliminar el cliente","CUIDADO",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 else
                 {
-                    string eliminar = "delete from cliente where id= " + arrayclientes[sel].ClienteID;
+                    string eliminar = "Delete from cliente where id= " + arrayclientes[sel].ClienteID;
                     bd.modificarbd(eliminar);
                     cargarlalista("cliente");
-                    MessageBox.Show("CLIENTE ELIMINADO");
                     limpiarcampos();
                 }
             }
