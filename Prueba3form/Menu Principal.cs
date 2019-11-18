@@ -151,5 +151,9 @@ namespace Prueba3form
             
         }
 
+        private void mascotasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //crear reporte de mascotas con dueños y tipo
+        }
     }
 }
