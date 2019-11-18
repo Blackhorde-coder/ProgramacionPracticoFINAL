@@ -21,7 +21,6 @@ namespace Prueba3form
         {
             // TODO: esta línea de código carga datos en la tabla 'DataSetClientes.Cliente' Puede moverla o quitarla según sea necesario.
             this.ClienteTableAdapter.ReportClientes(this.DataSetClientes.Cliente);
-
             this.reportViewer1.RefreshReport();
         }
     }

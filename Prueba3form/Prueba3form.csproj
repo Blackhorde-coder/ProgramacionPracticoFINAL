@@ -76,6 +76,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetClientes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetMascotas.cs">
+      <DependentUpon>DataSetMascotas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMascotas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMascotas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="manipulationcls.cs" />
     <Compile Include="Mascotacls.cs" />
     <Compile Include="Menu Principal.cs">
@@ -92,6 +100,12 @@
     </Compile>
     <Compile Include="ReporteClientesForm.Designer.cs">
       <DependentUpon>ReporteClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteMascotasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteMascotasForm.Designer.cs">
+      <DependentUpon>ReporteMascotasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ClienteForm.resx">
@@ -116,6 +130,10 @@
     <EmbeddedResource Include="ReporteClientesForm.resx">
       <DependentUpon>ReporteClientesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteMascotasForm.resx">
+      <DependentUpon>ReporteMascotasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportMascotas.rdlc" />
     <None Include="DataSetClientes.xsc">
       <DependentUpon>DataSetClientes.xsd</DependentUpon>
     </None>
@@ -126,6 +144,17 @@
     </None>
     <None Include="DataSetClientes.xss">
       <DependentUpon>DataSetClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMascotas.xsc">
+      <DependentUpon>DataSetMascotas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMascotas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMascotas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetMascotas.xss">
+      <DependentUpon>DataSetMascotas.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -153,6 +153,8 @@ namespace Prueba3form
 
         private void mascotasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            ReporteMascotasForm rm = new ReporteMascotasForm();
+            rm.ShowDialog();
             //crear reporte de mascotas con dueños y tipo
         }
     }
