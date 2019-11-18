@@ -30,34 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSetMascotas = new Prueba3form.DataSetMascotas();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DataSetClientes = new Prueba3form.DataSetClientes();
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClienteTableAdapter = new Prueba3form.DataSetClientesTableAdapters.ClienteTableAdapter();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetMascotas = new Prueba3form.DataSetMascotas();
             this.DataTable1TableAdapter = new Prueba3form.DataSetMascotasTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetMascotas;
-            // 
-            // DataSetMascotas
-            // 
-            this.DataSetMascotas.DataSetName = "DataSetMascotas";
-            this.DataSetMascotas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -68,7 +58,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(12, 82);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(776, 356);
+            this.reportViewer1.Size = new System.Drawing.Size(872, 376);
             this.reportViewer1.TabIndex = 0;
             // 
             // button1
@@ -80,22 +70,23 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "GENERAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // dtp1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(257, 42);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(113, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp1.Location = new System.Drawing.Point(257, 42);
+            this.dtp1.Name = "dtp1";
+            this.dtp1.Size = new System.Drawing.Size(113, 20);
+            this.dtp1.TabIndex = 3;
             // 
-            // dateTimePicker2
+            // dtp2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(482, 42);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(113, 20);
-            this.dateTimePicker2.TabIndex = 4;
+            this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp2.Location = new System.Drawing.Point(482, 42);
+            this.dtp2.Name = "dtp2";
+            this.dtp2.Size = new System.Drawing.Size(113, 20);
+            this.dtp2.TabIndex = 4;
             // 
             // label1
             // 
@@ -141,6 +132,16 @@
             // 
             this.ClienteTableAdapter.ClearBeforeFill = true;
             // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DataSetMascotas;
+            // 
+            // DataSetMascotas
+            // 
+            this.DataSetMascotas.DataSetName = "DataSetMascotas";
+            this.DataSetMascotas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
@@ -149,21 +150,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(896, 470);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtp2);
+            this.Controls.Add(this.dtp1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReporteMascotasForm";
             this.Text = "REPORTE DE MASCOTAS";
             this.Load += new System.EventHandler(this.ReporteMascotasForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,8 +177,8 @@
         private DataSetMascotas DataSetMascotas;
         private DataSetMascotasTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp1;
+        private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

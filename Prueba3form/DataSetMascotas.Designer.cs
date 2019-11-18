@@ -912,7 +912,7 @@ namespace Prueba3form.DataSetMascotasTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente
@@ -922,6 +922,16 @@ FROM            ((Cliente INNER JOIN
 
 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente
+FROM            ((Cliente INNER JOIN
+                         Mascota ON Cliente.Id = Mascota.Cliente_Id) INNER JOIN
+                         tipo_id ON Mascota.Tipo = tipo_id.Id)
+WHERE        (Mascota.Fecha_nac >= ? AND Mascota.Fecha_nac <= ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -943,6 +953,54 @@ FROM            ((Cliente INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetMascotas.DataTable1DataTable GetDataMascotas() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetMascotas.DataTable1DataTable dataTable = new DataSetMascotas.DataTable1DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DataSetMascotas.DataTable1DataTable dataTable, global::System.Nullable<global::System.DateTime> Fecha_nac, global::System.Nullable<global::System.DateTime> Fecha_nac1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Fecha_nac.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Fecha_nac.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_nac1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Fecha_nac1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetMascotas.DataTable1DataTable GetDataByFiltrado(global::System.Nullable<global::System.DateTime> Fecha_nac, global::System.Nullable<global::System.DateTime> Fecha_nac1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Fecha_nac.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Fecha_nac.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_nac1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Fecha_nac1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             DataSetMascotas.DataTable1DataTable dataTable = new DataSetMascotas.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

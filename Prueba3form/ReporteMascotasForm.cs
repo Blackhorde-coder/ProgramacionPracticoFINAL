@@ -23,6 +23,10 @@ namespace Prueba3form
             this.reportViewer1.RefreshReport();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DataTable1TableAdapter.FillBy(this.DataSetMascotas.DataTable1,dtp1.Value,dtp2.Value);
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
