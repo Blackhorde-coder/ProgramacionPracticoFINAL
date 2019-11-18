@@ -132,7 +132,8 @@ namespace Prueba3form
 
         private void consultarToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            //para consultar sobre las mascotas 
+            ReporteClientesForm rf = new ReporteClientesForm();
+            rf.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

@@ -264,10 +264,10 @@
             // 
             this.consorciosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarClienteToolStripMenuItem,
+            this.consultarToolStripMenuItem4,
             this.toolStripSeparator2,
             this.cargarMascotaToolStripMenuItem,
-            this.editarToolStripMenuItem1,
-            this.consultarToolStripMenuItem4});
+            this.editarToolStripMenuItem1});
             this.consorciosToolStripMenuItem1.Name = "consorciosToolStripMenuItem1";
             this.consorciosToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
             this.consorciosToolStripMenuItem1.Text = "Clientes";
@@ -275,33 +275,33 @@
             // cargarClienteToolStripMenuItem
             // 
             this.cargarClienteToolStripMenuItem.Name = "cargarClienteToolStripMenuItem";
-            this.cargarClienteToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cargarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarClienteToolStripMenuItem.Text = "Clientes";
             this.cargarClienteToolStripMenuItem.Click += new System.EventHandler(this.cargarClienteToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // cargarMascotaToolStripMenuItem
             // 
             this.cargarMascotaToolStripMenuItem.Name = "cargarMascotaToolStripMenuItem";
-            this.cargarMascotaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cargarMascotaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarMascotaToolStripMenuItem.Text = "Cargar Mascota";
             this.cargarMascotaToolStripMenuItem.Click += new System.EventHandler(this.cargarMascotaToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem1
             // 
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
             // consultarToolStripMenuItem4
             // 
             this.consultarToolStripMenuItem4.Name = "consultarToolStripMenuItem4";
-            this.consultarToolStripMenuItem4.Size = new System.Drawing.Size(162, 22);
+            this.consultarToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.consultarToolStripMenuItem4.Text = "Consultar";
             this.consultarToolStripMenuItem4.Click += new System.EventHandler(this.consultarToolStripMenuItem4_Click);
             // 
