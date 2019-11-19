@@ -59,6 +59,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -368,9 +369,9 @@
             this.btnEliminar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(12, 12);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 7);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 34);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 44);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -395,12 +396,24 @@
             this.label11.TabIndex = 30;
             this.label11.Text = "CLIENTES EXISTENTES";
             // 
+            // checkBoxActivo
+            // 
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxActivo.Location = new System.Drawing.Point(150, 21);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(59, 19);
+            this.checkBoxActivo.TabIndex = 34;
+            this.checkBoxActivo.Text = "BAJA";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
             // ClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(716, 361);
+            this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnEliminar);
@@ -470,5 +483,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
     }
 }

@@ -1085,7 +1085,8 @@ namespace Prueba3form.DataSetClientesTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nombre, Apellido, DNI, Direccion, Barrio, cod_area, Fijo, Id FROM Cliente";
+            this._commandCollection[0].CommandText = "SELECT Nombre, Apellido, DNI, Direccion, Barrio, cod_area, Fijo, Id FROM Cliente " +
+                "WHERE activo = true";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

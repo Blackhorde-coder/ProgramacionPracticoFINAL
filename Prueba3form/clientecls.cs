@@ -14,6 +14,7 @@ namespace Prueba3form
         private int _codfijo;
         private int _fijo;
         private int _clienteID;
+        private bool _activo;
         //constructores
         public Clientecls() : base()
         {
@@ -22,8 +23,10 @@ namespace Prueba3form
             _barrio = "";
             _codfijo = 0;
             _fijo = 0;
+            _clienteID = 0;
+            _activo = true;
         }
-        public Clientecls(int IDCLIENTE, string nombre, string apellido, int documento, bool sexo, string direccion, int nro, string barrio, int codfijo, int fijo, int codmovil, int movil) : base(nombre, apellido, documento, sexo, direccion, nro, barrio, codfijo, fijo, codmovil, movil)
+        public Clientecls(int IDCLIENTE, string nombre, string apellido, int documento, bool sexo, string direccion, int nro, string barrio, int codfijo, int fijo, int codmovil, int movil, bool activo) : base(nombre, apellido, documento, sexo, direccion, nro, barrio, codfijo, fijo, codmovil, movil)
         {
             _clienteID = IDCLIENTE;
             _direccion = direccion;
@@ -31,6 +34,7 @@ namespace Prueba3form
             _barrio = barrio;
             _codfijo = codfijo;
             _fijo = fijo;
+            _activo = activo;
         }
 
         public string Direccion1 { get => _direccion; set => _direccion = value; }
@@ -39,6 +43,7 @@ namespace Prueba3form
         public int Codfijo1 { get => _codfijo; set => _codfijo = value; }
         public int Fijo1 { get => _fijo; set => _fijo = value; }
         public int ClienteID { get => _clienteID; set => _clienteID = value; }
+        public bool Activo { get => _activo; set => _activo = value; }
 
         public string toStringCliente()
         {

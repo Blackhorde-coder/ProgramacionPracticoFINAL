@@ -49,6 +49,7 @@ namespace Prueba3form
             isnew = true;
             listBox1.Enabled = false;
             btnEliminar.Enabled = false;
+            checkBoxActivo.Checked = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -134,6 +135,12 @@ namespace Prueba3form
                     cli.Movil = 0;
                 else
                     cli.Movil = Convert.ToInt32(txtTelMovil.Text);
+                if (checkBoxActivo.Checked == true)
+                {
+                    cli.Activo = true;
+                }
+                else
+                    cli.Activo = false;
 
                 if (validartelefono(cli) == true)
                 {
@@ -150,6 +157,7 @@ namespace Prueba3form
                                                 "," + cli.Fijo1 +
                                                 "," + cli.Codmovil +
                                                 "," + cli.Movil +
+                                                "," +cli.Activo +
                                                 ")";
                         bd.modificarbd(consultasql);
                         activarbotones(true);
@@ -201,6 +209,7 @@ namespace Prueba3form
                 txtCodMovil.Text = Convert.ToString(arrayclientes[sel].Codmovil);
                 txtTelFijo.Text = Convert.ToString(arrayclientes[sel].Fijo1);
                 txtTelMovil.Text = Convert.ToString(arrayclientes[sel].Movil);
+                checkBoxActivo.Checked = arrayclientes[sel].Activo;
             }
             else
             {
@@ -302,6 +311,7 @@ namespace Prueba3form
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
             btnEliminar.Enabled = !k;
+            checkBoxActivo.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
         {
@@ -310,17 +320,30 @@ namespace Prueba3form
             while (bd.Reader.Read())
             {
                 Clientecls cli = new Clientecls();
-                cli.ClienteID = bd.Reader.GetInt32(0);
-                cli.Nombre = bd.Reader.GetString(1);
-                cli.Apellido = bd.Reader.GetString(2);
-                cli.Documento = bd.Reader.GetInt32(3);
-                cli.Sexo = bd.Reader.GetBoolean(4);
-                cli.Direccion1 = bd.Reader.GetString(5);
-                cli.Barrio1 = bd.Reader.GetString(6);
-                cli.Codfijo1 = bd.Reader.GetInt32(7);
-                cli.Fijo1 = bd.Reader.GetInt32(8);
-                cli.Codmovil = bd.Reader.GetInt32(9);
-                cli.Movil = bd.Reader.GetInt32(10);
+                if(!bd.Reader.IsDBNull(0))
+                    cli.ClienteID = bd.Reader.GetInt32(0);
+                if (!bd.Reader.IsDBNull(1))
+                    cli.Nombre = bd.Reader.GetString(1);
+                if (!bd.Reader.IsDBNull(2))
+                    cli.Apellido = bd.Reader.GetString(2);
+                if (!bd.Reader.IsDBNull(3))
+                    cli.Documento = bd.Reader.GetInt32(3);
+                if (!bd.Reader.IsDBNull(4))
+                    cli.Sexo = bd.Reader.GetBoolean(4);
+                if (!bd.Reader.IsDBNull(5))
+                    cli.Direccion1 = bd.Reader.GetString(5);
+                if (!bd.Reader.IsDBNull(6))
+                    cli.Barrio1 = bd.Reader.GetString(6);
+                if (!bd.Reader.IsDBNull(7))
+                    cli.Codfijo1 = bd.Reader.GetInt32(7);
+                if (!bd.Reader.IsDBNull(8))
+                    cli.Fijo1 = bd.Reader.GetInt32(8);
+                if (!bd.Reader.IsDBNull(9))
+                    cli.Codmovil = bd.Reader.GetInt32(9);
+                if (!bd.Reader.IsDBNull(10))
+                    cli.Movil = bd.Reader.GetInt32(10);
+                if (!bd.Reader.IsDBNull(11))
+                    cli.Activo = bd.Reader.GetBoolean(11);
                 arrayclientes[c] = cli;
                 c++;
             }
