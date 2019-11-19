@@ -39,6 +39,7 @@ namespace Prueba3form
             toolTip.SetToolTip(btnCancelar, "CANCELAR");
             toolTip.SetToolTip(btnSalir, "SALIR");
             toolTip.SetToolTip(btnGuardar, "GUARDAR CAMBIOS");
+            toolTip.SetToolTip(lblInfo, "INSERTE AL MENOS UN TELEFONO");
 
         }
 
@@ -117,47 +118,70 @@ namespace Prueba3form
                     cli.Sexo = true;
                 cli.Direccion1 = txtDireccion.Text;
                 cli.Barrio1 = txtBarrio.Text;
-                cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
-                cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
-                cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
-                cli.Movil = Convert.ToInt32(txtTelMovil.Text);
-                if (isnew == true)
+                if (txtCodFijo.Text == "")
+                    cli.Codfijo1 = 0;
+                else
+                    cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
+                if (txtTelFijo.Text == "")
+                    cli.Fijo1 = 0;
+                else
+                    cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
+                if (txtCodMovil.Text == "")
+                    cli.Codmovil = 0;
+                else
+                    cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
+                if (txtTelMovil.Text == "")
+                    cli.Movil = 0;
+                else
+                    cli.Movil = Convert.ToInt32(txtTelMovil.Text);
+
+                if (validartelefono(cli) == true)
                 {
-                    consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
-                                            "('" + cli.Nombre +
-                                            "','" + cli.Apellido +
-                                            "'," + cli.Documento +
-                                            "," + cli.Sexo +
-                                            ",'" + cli.Direccion1 +
-                                            "','" + cli.Barrio1 +
-                                            "'," + cli.Codfijo1 +
-                                            "," + cli.Fijo1 +
-                                            "," + cli.Codmovil +
-                                            "," + cli.Movil +
-                                            ")";
-                    bd.modificarbd(consultasql);
-                    activarbotones(true);
+                    if (isnew == true)
+                    {
+                        consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
+                                                "('" + cli.Nombre +
+                                                "','" + cli.Apellido +
+                                                "'," + cli.Documento +
+                                                "," + cli.Sexo +
+                                                ",'" + cli.Direccion1 +
+                                                "','" + cli.Barrio1 +
+                                                "'," + cli.Codfijo1 +
+                                                "," + cli.Fijo1 +
+                                                "," + cli.Codmovil +
+                                                "," + cli.Movil +
+                                                ")";
+                        bd.modificarbd(consultasql);
+                        activarbotones(true);
+                    }
+                    else
+                    {
+                        consultasql = "update cliente set " +
+                                        "nombre='" + cli.Nombre + "'," +
+                                        "apellido='" + cli.Apellido + "'," +
+                                        "dni=" + cli.Documento + "," +
+                                        "sexo=" + cli.Sexo + "," +
+                                        "direccion='" + cli.Direccion1 + "'," +
+                                        "barrio='" + cli.Barrio1 + "'," +
+                                        "cod_area=" + cli.Codfijo1 + "," +
+                                        "fijo=" + cli.Fijo1 + "," +
+                                        "cod_area_mov=" + cli.Codmovil + "," +
+                                        "movil=" + cli.Movil + " " +
+                                        "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
+                        bd.modificarbd(consultasql);
+                        activarbotones(true);
+                    }
+                    limpiarcampos();
+                    cargarlalista("cliente");
                 }
                 else
                 {
-                    consultasql = "update cliente set " +
-                                    "nombre='" + cli.Nombre + "',"+
-                                    "apellido='" + cli.Apellido + "',"+
-                                    "dni=" + cli.Documento + ","+
-                                    "sexo=" + cli.Sexo + ","+
-                                    "direccion='" + cli.Direccion1 +"',"+
-                                    "barrio='" + cli.Barrio1 + "',"+
-                                    "cod_area=" + cli.Codfijo1 +","+
-                                    "fijo=" + cli.Fijo1 +","+
-                                    "cod_area_mov=" + cli.Codmovil +","+
-                                    "movil=" + cli.Movil + " " +
-                                    "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
-                    bd.modificarbd(consultasql);
-                    activarbotones(true);
+                    MessageBox.Show("CORROBORE LOS NUMEROS TELEFONICOS");
+                    txtCodFijo.Focus();
                 }
+
             }
-            limpiarcampos();
-            cargarlalista("cliente");
+        
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -220,6 +244,23 @@ namespace Prueba3form
                 txtCodMovil.Focus();
                 return false;
             }
+            if (txtCodFijo.Text == "" && txtCodMovil.Text == "")
+            {
+                MessageBox.Show("ES NECESARIO AL MENOS UN TELEFONO");
+                txtCodFijo.Focus();
+                return false;
+            }
+            else
+                return true;
+        }
+        private bool validartelefono(Clientecls c)
+        {
+            if (c.Codfijo1 == 0 && c.Fijo1 == 0 && c.Movil == 0 && c.Codmovil == 0)
+                return false;
+            if (c.Codfijo1 == 0 && c.Fijo1 != 0 || c.Fijo1 == 0 && c.Codfijo1 != 0)
+                return false;
+            if (c.Codmovil == 0 && c.Movil != 0 || c.Movil == 0 && c.Codmovil != 0)
+                return false;
             else
                 return true;
         }

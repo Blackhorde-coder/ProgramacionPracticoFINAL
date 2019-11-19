@@ -54,10 +54,9 @@
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consorciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cargarMascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaRapidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,8 +264,7 @@
             this.cargarClienteToolStripMenuItem,
             this.consultarToolStripMenuItem4,
             this.toolStripSeparator2,
-            this.cargarMascotaToolStripMenuItem,
-            this.editarToolStripMenuItem1});
+            this.cargarMascotaToolStripMenuItem});
             this.consorciosToolStripMenuItem1.Name = "consorciosToolStripMenuItem1";
             this.consorciosToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
             this.consorciosToolStripMenuItem1.Text = "Clientes";
@@ -278,6 +276,13 @@
             this.cargarClienteToolStripMenuItem.Text = "Clientes";
             this.cargarClienteToolStripMenuItem.Click += new System.EventHandler(this.cargarClienteToolStripMenuItem_Click);
             // 
+            // consultarToolStripMenuItem4
+            // 
+            this.consultarToolStripMenuItem4.Name = "consultarToolStripMenuItem4";
+            this.consultarToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem4.Text = "Reporte";
+            this.consultarToolStripMenuItem4.Click += new System.EventHandler(this.consultarToolStripMenuItem4_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -287,22 +292,8 @@
             // 
             this.cargarMascotaToolStripMenuItem.Name = "cargarMascotaToolStripMenuItem";
             this.cargarMascotaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargarMascotaToolStripMenuItem.Text = "Cargar Mascota";
+            this.cargarMascotaToolStripMenuItem.Text = "Mascotas";
             this.cargarMascotaToolStripMenuItem.Click += new System.EventHandler(this.cargarMascotaToolStripMenuItem_Click);
-            // 
-            // editarToolStripMenuItem1
-            // 
-            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.editarToolStripMenuItem1.Text = "Editar";
-            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
-            // 
-            // consultarToolStripMenuItem4
-            // 
-            this.consultarToolStripMenuItem4.Name = "consultarToolStripMenuItem4";
-            this.consultarToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.consultarToolStripMenuItem4.Text = "Reporte";
-            this.consultarToolStripMenuItem4.Click += new System.EventHandler(this.consultarToolStripMenuItem4_Click);
             // 
             // consultaRapidaToolStripMenuItem
             // 
@@ -425,7 +416,6 @@
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cargarMascotaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem4;
     }
 }

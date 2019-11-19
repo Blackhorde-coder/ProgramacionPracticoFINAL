@@ -13,6 +13,7 @@ namespace Prueba3form
         private DateTime _fecNac;
         private int _tipo;
         private bool _sexo;
+        private double _peso;
         private string _descripcion;
         private int _id;
         //constructores 
@@ -25,8 +26,9 @@ namespace Prueba3form
             _sexo = true;
             _descripcion = "";
             _cliente = null;
+            _peso = 0;
         }
-        public Mascotacls(int id, string nombre, DateTime fecNac, int tipo, bool sexo, string descripcion, Clientecls c)
+        public Mascotacls(int id, string nombre, DateTime fecNac, int tipo, bool sexo, string descripcion, Clientecls c, double peso)
         {
             _id = id;
             _nombre = nombre;
@@ -35,6 +37,7 @@ namespace Prueba3form
             _sexo = sexo;
             _descripcion = descripcion;
             _cliente = c;
+            _peso = peso;
         }
 
         public string Nombre1 { get => _nombre; set => _nombre = value; }
@@ -44,6 +47,7 @@ namespace Prueba3form
         public Clientecls Cliente { get => _cliente; set => _cliente = value; }
         public int Id { get => _id; set => _id = value; }
         public bool Sexo { get => _sexo; set => _sexo = value; }
+        public double Peso { get => _peso; set => _peso = value; }
 
         //to string mascotas
         public string toStringMascota()

@@ -57,6 +57,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -81,7 +83,7 @@
             // 
             this.txtDocumento.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.Location = new System.Drawing.Point(150, 123);
-            this.txtDocumento.MaxLength = 10;
+            this.txtDocumento.MaxLength = 8;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(218, 22);
             this.txtDocumento.TabIndex = 5;
@@ -111,7 +113,7 @@
             // 
             this.txtTelFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelFijo.Location = new System.Drawing.Point(255, 201);
-            this.txtTelFijo.MaxLength = 15;
+            this.txtTelFijo.MaxLength = 8;
             this.txtTelFijo.Name = "txtTelFijo";
             this.txtTelFijo.Size = new System.Drawing.Size(113, 22);
             this.txtTelFijo.TabIndex = 8;
@@ -186,7 +188,7 @@
             // 
             this.txtTelMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelMovil.Location = new System.Drawing.Point(255, 227);
-            this.txtTelMovil.MaxLength = 15;
+            this.txtTelMovil.MaxLength = 8;
             this.txtTelMovil.Name = "txtTelMovil";
             this.txtTelMovil.Size = new System.Drawing.Size(113, 22);
             this.txtTelMovil.TabIndex = 13;
@@ -241,7 +243,7 @@
             // 
             this.txtCodFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodFijo.Location = new System.Drawing.Point(150, 201);
-            this.txtCodFijo.MaxLength = 6;
+            this.txtCodFijo.MaxLength = 4;
             this.txtCodFijo.Name = "txtCodFijo";
             this.txtCodFijo.Size = new System.Drawing.Size(78, 22);
             this.txtCodFijo.TabIndex = 18;
@@ -317,9 +319,9 @@
             this.listBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(491, 12);
+            this.listBox1.Location = new System.Drawing.Point(491, 31);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 270);
+            this.listBox1.Size = new System.Drawing.Size(205, 251);
             this.listBox1.TabIndex = 25;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -357,11 +359,33 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(374, 206);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(13, 15);
+            this.lblInfo.TabIndex = 29;
+            this.lblInfo.Text = "?";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(528, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(140, 15);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "CLIENTES EXISTENTES";
+            // 
             // ClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 361);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
@@ -427,5 +451,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label label11;
     }
 }

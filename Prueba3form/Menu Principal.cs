@@ -127,7 +127,7 @@ namespace Prueba3form
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //para el update de mascotas
+       
         }
 
         private void consultarToolStripMenuItem4_Click(object sender, EventArgs e)
