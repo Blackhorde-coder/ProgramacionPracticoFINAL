@@ -35,9 +35,9 @@ namespace Prueba3form
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnNuevo, "NUEVO CLIENTE");
             toolTip.SetToolTip(btnEditar, "EDITAR CLIENTE");
-            toolTip.SetToolTip(btnEliminar, "ELIMINAR REGISTRO");
+            toolTip.SetToolTip(bntBaja, "DAR DE BAJA CLIENTE");
             toolTip.SetToolTip(btnCancelar, "CANCELAR");
-            toolTip.SetToolTip(btnSalir, "SALIR");
+            toolTip.SetToolTip(btnSalir, "SAKIR");
             toolTip.SetToolTip(btnGuardar, "GUARDAR CAMBIOS");
             toolTip.SetToolTip(lblInfo, "INSERTE AL MENOS UN TELEFONO");
 
@@ -48,7 +48,7 @@ namespace Prueba3form
             activarbotones(false);
             isnew = true;
             listBox1.Enabled = false;
-            btnEliminar.Enabled = false;
+            bntBaja.Enabled = false;
             checkBoxActivo.Checked = true;
         }
 
@@ -56,6 +56,7 @@ namespace Prueba3form
         {
             activarbotones(false);
             isnew = false;
+            checkBoxActivo.Enabled = false;
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -210,6 +211,11 @@ namespace Prueba3form
                 txtTelFijo.Text = Convert.ToString(arrayclientes[sel].Fijo1);
                 txtTelMovil.Text = Convert.ToString(arrayclientes[sel].Movil);
                 checkBoxActivo.Checked = arrayclientes[sel].Activo;
+                if (arrayclientes[sel].Activo == false)
+                {
+                    checkBoxActivo.Enabled = true;
+                    bntBaja.Enabled = false;
+                }
             }
             else
             {
@@ -310,7 +316,7 @@ namespace Prueba3form
             txtBarrio.Enabled = !k;
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
-            btnEliminar.Enabled = !k;
+            bntBaja.Enabled = !k;
             checkBoxActivo.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
@@ -362,14 +368,24 @@ namespace Prueba3form
             while (bd.Reader.Read())
             {
                 Mascotacls m = new Mascotacls();
-                m.Id = bd.Reader.GetInt32(0);
-                m.Nombre1 = bd.Reader.GetString(1);
-                m.FecNac = bd.Reader.GetDateTime(2);
-                m.Tipo = bd.Reader.GetInt32(3);
-                m.Descripcion = bd.Reader.GetString(4);
+                if (!bd.Reader.IsDBNull(0))
+                    m.Id = bd.Reader.GetInt32(0);
+                if (!bd.Reader.IsDBNull(1))
+                    m.Nombre1 = bd.Reader.GetString(1);
+                if (!bd.Reader.IsDBNull(2))
+                    m.FecNac = bd.Reader.GetDateTime(2);
+                if (!bd.Reader.IsDBNull(3))
+                    m.Tipo = bd.Reader.GetInt32(3);
+                if (!bd.Reader.IsDBNull(4))
+                    m.Sexo = bd.Reader.GetBoolean(4);
+                if (!bd.Reader.IsDBNull(5))
+                    m.Peso = bd.Reader.GetDouble(5);
+                if (!bd.Reader.IsDBNull(6))
+                    m.Descripcion = bd.Reader.GetString(6);
                 Clientecls c = new Clientecls();
                 m.Cliente = c;
-                m.Cliente.ClienteID = bd.Reader.GetInt32(5);
+                if (!bd.Reader.IsDBNull(7))
+                    m.Cliente.ClienteID = bd.Reader.GetInt32(7);
                 arraymascotas[cm] = m;
                 cm++;
             }
@@ -403,13 +419,18 @@ namespace Prueba3form
                 }
                 else
                 {
-                    string eliminar = "Delete from cliente where id= " + arrayclientes[sel].ClienteID;
+                    string eliminar = "update cliente set activo= false where id = " + arrayclientes[sel].ClienteID;
                     bd.modificarbd(eliminar);
                     cargarlalista("cliente");
                     limpiarcampos();
                 }
             }
    
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

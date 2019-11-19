@@ -56,10 +56,12 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.bntBaja = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnAlta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -364,17 +366,17 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnEliminar
+            // bntBaja
             // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(3, 7);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 44);
-            this.btnEliminar.TabIndex = 28;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.bntBaja.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.bntBaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntBaja.BackgroundImage")));
+            this.bntBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bntBaja.Location = new System.Drawing.Point(377, 74);
+            this.bntBaja.Name = "bntBaja";
+            this.bntBaja.Size = new System.Drawing.Size(43, 40);
+            this.bntBaja.TabIndex = 28;
+            this.bntBaja.UseVisualStyleBackColor = false;
+            this.bntBaja.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblInfo
             // 
@@ -400,12 +402,34 @@
             // 
             this.checkBoxActivo.AutoSize = true;
             this.checkBoxActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxActivo.Location = new System.Drawing.Point(150, 21);
+            this.checkBoxActivo.Location = new System.Drawing.Point(377, 51);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(59, 19);
             this.checkBoxActivo.TabIndex = 34;
             this.checkBoxActivo.Text = "BAJA";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(186, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 15);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "DATOS DEL CLIENTE";
+            // 
+            // btnAlta
+            // 
+            this.btnAlta.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnAlta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAlta.BackgroundImage")));
+            this.btnAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAlta.Location = new System.Drawing.Point(426, 73);
+            this.btnAlta.Name = "btnAlta";
+            this.btnAlta.Size = new System.Drawing.Size(43, 41);
+            this.btnAlta.TabIndex = 36;
+            this.btnAlta.UseVisualStyleBackColor = false;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // ClienteForm
             // 
@@ -413,10 +437,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(716, 361);
+            this.Controls.Add(this.btnAlta);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblInfo);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.bntBaja);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.listBox1);
@@ -480,9 +506,11 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button bntBaja;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkBoxActivo;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnAlta;
     }
 }
