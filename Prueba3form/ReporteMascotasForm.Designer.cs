@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteMascotasForm));
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetMascotas = new Prueba3form.DataSetMascotas();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button1 = new System.Windows.Forms.Button();
             this.dtp1 = new System.Windows.Forms.DateTimePicker();
@@ -41,14 +43,22 @@
             this.DataSetClientes = new Prueba3form.DataSetClientes();
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClienteTableAdapter = new Prueba3form.DataSetClientesTableAdapters.ClienteTableAdapter();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSetMascotas = new Prueba3form.DataSetMascotas();
             this.DataTable1TableAdapter = new Prueba3form.DataSetMascotasTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DataSetMascotas;
+            // 
+            // DataSetMascotas
+            // 
+            this.DataSetMascotas.DataSetName = "DataSetMascotas";
+            this.DataSetMascotas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -71,13 +81,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(806, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 51);
             this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtp1
@@ -140,16 +151,6 @@
             // 
             this.ClienteTableAdapter.ClearBeforeFill = true;
             // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetMascotas;
-            // 
-            // DataSetMascotas
-            // 
-            this.DataSetMascotas.DataSetName = "DataSetMascotas";
-            this.DataSetMascotas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
@@ -158,6 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(896, 470);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -169,10 +171,10 @@
             this.Name = "ReporteMascotasForm";
             this.Text = "REPORTE DE MASCOTAS";
             this.Load += new System.EventHandler(this.ReporteMascotasForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetMascotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

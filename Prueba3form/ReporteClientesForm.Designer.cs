@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSetClientes = new Prueba3form.DataSetClientes();
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetClientes = new Prueba3form.DataSetClientes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ClienteTableAdapter = new Prueba3form.DataSetClientesTableAdapters.ClienteTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ClienteBindingSource
+            // 
+            this.ClienteBindingSource.DataMember = "Cliente";
+            this.ClienteBindingSource.DataSource = this.DataSetClientes;
+            // 
+            // DataSetClientes
+            // 
+            this.DataSetClientes.DataSetName = "DataSetClientes";
+            this.DataSetClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -51,16 +61,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DataSetClientes
-            // 
-            this.DataSetClientes.DataSetName = "DataSetClientes";
-            this.DataSetClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ClienteBindingSource
-            // 
-            this.ClienteBindingSource.DataMember = "Cliente";
-            this.ClienteBindingSource.DataSource = this.DataSetClientes;
-            // 
             // ClienteTableAdapter
             // 
             this.ClienteTableAdapter.ClearBeforeFill = true;
@@ -69,13 +69,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReporteClientesForm";
             this.Text = "ReporteClientesForm";
             this.Load += new System.EventHandler(this.ReporteClientesForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
