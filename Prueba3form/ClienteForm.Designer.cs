@@ -56,12 +56,16 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.bntBaja = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnAlta = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbActivos = new System.Windows.Forms.RadioButton();
+            this.rdbInactivo = new System.Windows.Forms.RadioButton();
+            this.rdbTodos = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -337,7 +341,7 @@
             this.listBox1.ItemHeight = 19;
             this.listBox1.Location = new System.Drawing.Point(491, 31);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 251);
+            this.listBox1.Size = new System.Drawing.Size(205, 213);
             this.listBox1.TabIndex = 25;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -353,6 +357,8 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
+            this.btnNuevo.MouseEnter += new System.EventHandler(this.btnNuevo_MouseEnter);
+            this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
             // 
             // btnEditar
             // 
@@ -366,17 +372,17 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // bntBaja
+            // btnBaja
             // 
-            this.bntBaja.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.bntBaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntBaja.BackgroundImage")));
-            this.bntBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.bntBaja.Location = new System.Drawing.Point(377, 74);
-            this.bntBaja.Name = "bntBaja";
-            this.bntBaja.Size = new System.Drawing.Size(43, 40);
-            this.bntBaja.TabIndex = 28;
-            this.bntBaja.UseVisualStyleBackColor = false;
-            this.bntBaja.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnBaja.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnBaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBaja.BackgroundImage")));
+            this.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBaja.Location = new System.Drawing.Point(374, 74);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(46, 44);
+            this.btnBaja.TabIndex = 28;
+            this.btnBaja.UseVisualStyleBackColor = false;
+            this.btnBaja.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblInfo
             // 
@@ -402,34 +408,76 @@
             // 
             this.checkBoxActivo.AutoSize = true;
             this.checkBoxActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxActivo.Location = new System.Drawing.Point(377, 51);
+            this.checkBoxActivo.Location = new System.Drawing.Point(377, 50);
             this.checkBoxActivo.Name = "checkBoxActivo";
-            this.checkBoxActivo.Size = new System.Drawing.Size(59, 19);
+            this.checkBoxActivo.Size = new System.Drawing.Size(73, 19);
             this.checkBoxActivo.TabIndex = 34;
-            this.checkBoxActivo.Text = "BAJA";
+            this.checkBoxActivo.Text = "ACTIVO";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(186, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 15);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "DATOS DEL CLIENTE";
             // 
             // btnAlta
             // 
             this.btnAlta.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAlta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAlta.BackgroundImage")));
             this.btnAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAlta.Location = new System.Drawing.Point(426, 73);
+            this.btnAlta.Location = new System.Drawing.Point(426, 74);
             this.btnAlta.Name = "btnAlta";
-            this.btnAlta.Size = new System.Drawing.Size(43, 41);
-            this.btnAlta.TabIndex = 36;
+            this.btnAlta.Size = new System.Drawing.Size(46, 44);
+            this.btnAlta.TabIndex = 35;
             this.btnAlta.UseVisualStyleBackColor = false;
-            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
+            this.btnAlta.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbTodos);
+            this.groupBox1.Controls.Add(this.rdbInactivo);
+            this.groupBox1.Controls.Add(this.rdbActivos);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(426, 250);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 47);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "FILTRO";
+            // 
+            // rdbActivos
+            // 
+            this.rdbActivos.AutoSize = true;
+            this.rdbActivos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbActivos.Location = new System.Drawing.Point(74, 21);
+            this.rdbActivos.Name = "rdbActivos";
+            this.rdbActivos.Size = new System.Drawing.Size(63, 19);
+            this.rdbActivos.TabIndex = 37;
+            this.rdbActivos.TabStop = true;
+            this.rdbActivos.Text = "ACTIV";
+            this.rdbActivos.UseVisualStyleBackColor = true;
+            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
+            // 
+            // rdbInactivo
+            // 
+            this.rdbInactivo.AutoSize = true;
+            this.rdbInactivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbInactivo.Location = new System.Drawing.Point(138, 21);
+            this.rdbInactivo.Name = "rdbInactivo";
+            this.rdbInactivo.Size = new System.Drawing.Size(64, 19);
+            this.rdbInactivo.TabIndex = 38;
+            this.rdbInactivo.TabStop = true;
+            this.rdbInactivo.Text = "INACT";
+            this.rdbInactivo.UseVisualStyleBackColor = true;
+            this.rdbInactivo.CheckedChanged += new System.EventHandler(this.rdbInactivo_CheckedChanged);
+            // 
+            // rdbTodos
+            // 
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTodos.Location = new System.Drawing.Point(203, 21);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(67, 19);
+            this.rdbTodos.TabIndex = 39;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "TODOS";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
             // 
             // ClienteForm
             // 
@@ -437,12 +485,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(716, 361);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlta);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblInfo);
-            this.Controls.Add(this.bntBaja);
+            this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.listBox1);
@@ -473,6 +521,8 @@
             this.Name = "ClienteForm";
             this.Text = "CLIENTE";
             this.Load += new System.EventHandler(this.ClienteForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,11 +556,14 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button bntBaja;
+        private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkBoxActivo;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnAlta;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbTodos;
+        private System.Windows.Forms.RadioButton rdbInactivo;
+        private System.Windows.Forms.RadioButton rdbActivos;
     }
 }
