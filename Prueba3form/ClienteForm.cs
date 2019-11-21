@@ -26,6 +26,7 @@ namespace Prueba3form
             activarbotones(true);
             cargarlalista("cliente");
             rdbTodos.Checked = true;
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -37,7 +38,8 @@ namespace Prueba3form
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnNuevo, "NUEVO CLIENTE");
             toolTip.SetToolTip(btnEditar, "EDITAR CLIENTE");
-            toolTip.SetToolTip(btnBaja, "ELIMINAR REGISTRO");
+            toolTip.SetToolTip(btnBaja, "DAR BAJA");
+            toolTip.SetToolTip(btnAlta, "DAR ALTA");
             toolTip.SetToolTip(btnCancelar, "CANCELAR");
             toolTip.SetToolTip(btnSalir, "SALIR");
             toolTip.SetToolTip(btnGuardar, "GUARDAR CAMBIOS");
@@ -53,12 +55,15 @@ namespace Prueba3form
             btnBaja.Enabled = false;
             checkBoxActivo.Checked = true;
             btnAlta.Enabled = false;
+            cambiarcolortxt("white");
+            groupBox1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             activarbotones(false);
             isnew = false;
+            cambiarcolortxt("white");
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -190,6 +195,7 @@ namespace Prueba3form
                     MessageBox.Show("CORROBORE LOS NUMEROS TELEFONICOS");
                     txtCodFijo.Focus();
                 }
+                cambiarcolortxt("control");
             }
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,18 +230,21 @@ namespace Prueba3form
             if (txtNombre.Text == "")
             {
                 MessageBox.Show("CARGAR NOMBRE");
+                txtNombre.BackColor = Color.Red;
                 txtNombre.Focus();
                 return false;
             }
             if (txtApellido.Text == "")
             {
                 MessageBox.Show("CARGAR APELLIDO");
+                txtApellido.BackColor = Color.Red;
                 txtApellido.Focus();
                 return false;
             }
             if (txtDocumento.Text == "")
             {
                 MessageBox.Show("CARGAR DOCUMENTO");
+                txtDocumento.BackColor = Color.Red;
                 txtDocumento.Focus();
                 return false;
             }
@@ -247,18 +256,26 @@ namespace Prueba3form
             if ((txtCodFijo.Text != "" && txtTelFijo.Text == "") || (txtTelFijo.Text != "" && txtCodFijo.Text==""))
             {
                 MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodFijo.BackColor = Color.Red;
+                txtTelFijo.BackColor = Color.Red;
                 txtCodFijo.Focus();
                 return false;
             }
             if ((txtCodMovil.Text != "" && txtTelMovil.Text == "") || (txtCodMovil.Text == "" && txtTelMovil.Text != ""))
             {
                 MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodMovil.BackColor = Color.Red;
+                txtTelMovil.BackColor = Color.Red;
                 txtCodMovil.Focus();
                 return false;
             }
             if (txtCodFijo.Text == "" && txtCodMovil.Text == "")
             {
                 MessageBox.Show("ES NECESARIO AL MENOS UN TELEFONO");
+                txtCodMovil.BackColor = Color.Red;
+                txtTelMovil.BackColor = Color.Red;
+                txtCodFijo.BackColor = Color.Red;
+                txtTelFijo.BackColor = Color.Red;
                 txtCodFijo.Focus();
                 return false;
             }
@@ -391,6 +408,7 @@ namespace Prueba3form
                 e.Handled = false;
             else
                 e.Handled = true;
+            cambiarcolortxt("white");
         }
         private void clienteplista()
         {
@@ -523,6 +541,35 @@ namespace Prueba3form
         private void btnAlta_MouseLeave(object sender, EventArgs e)
         {
             btnAlta.BackColor = SystemColors.ActiveBorder;
+        }
+        private void cambiarcolortxt(string color)
+        {
+            if (color == "white")
+            {
+                txtNombre.BackColor = Color.WhiteSmoke;
+                txtApellido.BackColor = Color.WhiteSmoke;
+                txtDocumento.BackColor = Color.WhiteSmoke;
+                txtTelFijo.BackColor = Color.WhiteSmoke;
+                txtTelMovil.BackColor = Color.WhiteSmoke;
+                txtCodFijo.BackColor = Color.WhiteSmoke;
+                txtCodMovil.BackColor = Color.WhiteSmoke;
+                txtDireccion.BackColor = Color.WhiteSmoke;
+                txtBarrio.BackColor = Color.WhiteSmoke;
+            }
+            else if (color == "control")
+            {
+                txtNombre.BackColor = SystemColors.ControlLight;
+                txtApellido.BackColor = SystemColors.ControlLight;
+                txtDocumento.BackColor = SystemColors.ControlLight;
+                txtTelFijo.BackColor = SystemColors.ControlLight;
+                txtTelMovil.BackColor = SystemColors.ControlLight;
+                txtCodFijo.BackColor = SystemColors.ControlLight;
+                txtCodMovil.BackColor = SystemColors.ControlLight;
+                txtDireccion.BackColor = SystemColors.ControlLight;
+                txtBarrio.BackColor = SystemColors.ControlLight;
+            }
+
+
         }
     }
     
