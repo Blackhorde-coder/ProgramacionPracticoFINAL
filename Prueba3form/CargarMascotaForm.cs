@@ -118,6 +118,38 @@ namespace Prueba3form
             ClienteForm cc = new ClienteForm();
             cc.ShowDialog();
         }
+        private void vacunas(int tipom)
+        {
+            if (tipom == 0)
+            {
+                groupBox1.Enabled = true;
+                checkBoxPanleucopenia.Enabled = false;
+                checkBoxInfluenza.Enabled = false;
+                checkBoxLeucemia.Enabled = false;
+                checkBoxClamidiosis.Enabled = false;
+                checkBoxMoquillo.Enabled = true;
+                checkBoxHepatitis.Enabled = true;
+                checkBoxLeptospirosis.Enabled = true;
+                checkBoxParvovirosis.Enabled = true;
+            }
+            else if (tipom == 1)
+            {
+                groupBox1.Enabled = true;
+                checkBoxMoquillo.Enabled = false;
+                checkBoxHepatitis.Enabled = false;
+                checkBoxLeptospirosis.Enabled = false;
+                checkBoxParvovirosis.Enabled = false;
+                checkBoxPanleucopenia.Enabled = true;
+                checkBoxInfluenza.Enabled = true;
+                checkBoxLeucemia.Enabled = true;
+                checkBoxClamidiosis.Enabled = true;
+            }
+            else
+            {
+                groupBox1.Enabled = false;
+            }
+
+        }
 
         private void limpiarcampos()
         {
@@ -327,6 +359,16 @@ namespace Prueba3form
                 cargarlistamascotas("mascota");
                 limpiarcampos();
             }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            vacunas(cmbTipo.SelectedIndex);
+        }
+
+        private void cmbTipo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            vacunas(cmbTipo.SelectedIndex);
         }
     }
     

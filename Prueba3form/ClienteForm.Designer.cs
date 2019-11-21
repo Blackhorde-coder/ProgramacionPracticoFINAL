@@ -65,6 +65,7 @@
             this.rdbTodos = new System.Windows.Forms.RadioButton();
             this.rdbInactivo = new System.Windows.Forms.RadioButton();
             this.rdbActivos = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -492,6 +493,16 @@
             this.rdbActivos.UseVisualStyleBackColor = true;
             this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(178, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 15);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "DATOS DEL CLIENTE";
+            // 
             // ClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,6 +510,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(716, 361);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.checkBoxActivo);
@@ -579,5 +591,6 @@
         private System.Windows.Forms.RadioButton rdbTodos;
         private System.Windows.Forms.RadioButton rdbInactivo;
         private System.Windows.Forms.RadioButton rdbActivos;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -55,12 +55,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxClamidiosis = new System.Windows.Forms.CheckBox();
+            this.checkBoxLeucemia = new System.Windows.Forms.CheckBox();
+            this.checkBoxInfluenza = new System.Windows.Forms.CheckBox();
+            this.checkBoxPanleucopenia = new System.Windows.Forms.CheckBox();
+            this.checkBoxRabia = new System.Windows.Forms.CheckBox();
+            this.checkBoxParvovirosis = new System.Windows.Forms.CheckBox();
+            this.checkBoxLeptospirosis = new System.Windows.Forms.CheckBox();
+            this.checkBoxHepatitis = new System.Windows.Forms.CheckBox();
+            this.checkBoxMoquillo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +113,8 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(200, 23);
             this.cmbTipo.TabIndex = 3;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            this.cmbTipo.SelectionChangeCommitted += new System.EventHandler(this.cmbTipo_SelectionChangeCommitted);
             // 
             // txtNombre
             // 
@@ -341,79 +346,112 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.checkBoxClamidiosis);
+            this.groupBox1.Controls.Add(this.checkBoxLeucemia);
+            this.groupBox1.Controls.Add(this.checkBoxInfluenza);
+            this.groupBox1.Controls.Add(this.checkBoxPanleucopenia);
+            this.groupBox1.Controls.Add(this.checkBoxRabia);
+            this.groupBox1.Controls.Add(this.checkBoxParvovirosis);
+            this.groupBox1.Controls.Add(this.checkBoxLeptospirosis);
+            this.groupBox1.Controls.Add(this.checkBoxHepatitis);
+            this.groupBox1.Controls.Add(this.checkBoxMoquillo);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(431, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(127, 264);
+            this.groupBox1.Size = new System.Drawing.Size(127, 282);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VACUNAS";
             // 
-            // checkBox1
+            // checkBoxClamidiosis
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 22);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(83, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxClamidiosis.AutoSize = true;
+            this.checkBoxClamidiosis.Location = new System.Drawing.Point(6, 233);
+            this.checkBoxClamidiosis.Name = "checkBoxClamidiosis";
+            this.checkBoxClamidiosis.Size = new System.Drawing.Size(107, 19);
+            this.checkBoxClamidiosis.TabIndex = 8;
+            this.checkBoxClamidiosis.Text = "CLAMIDIOSIS";
+            this.checkBoxClamidiosis.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxLeucemia
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 47);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(83, 19);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxLeucemia.AutoSize = true;
+            this.checkBoxLeucemia.Location = new System.Drawing.Point(7, 208);
+            this.checkBoxLeucemia.Name = "checkBoxLeucemia";
+            this.checkBoxLeucemia.Size = new System.Drawing.Size(90, 19);
+            this.checkBoxLeucemia.TabIndex = 7;
+            this.checkBoxLeucemia.Text = "LEUCEMIA";
+            this.checkBoxLeucemia.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxInfluenza
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 72);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(83, 19);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBoxInfluenza.AutoSize = true;
+            this.checkBoxInfluenza.Location = new System.Drawing.Point(6, 183);
+            this.checkBoxInfluenza.Name = "checkBoxInfluenza";
+            this.checkBoxInfluenza.Size = new System.Drawing.Size(96, 19);
+            this.checkBoxInfluenza.TabIndex = 6;
+            this.checkBoxInfluenza.Text = "INFLUENZA";
+            this.checkBoxInfluenza.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxPanleucopenia
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 97);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(83, 19);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBoxPanleucopenia.AutoSize = true;
+            this.checkBoxPanleucopenia.Location = new System.Drawing.Point(6, 158);
+            this.checkBoxPanleucopenia.Name = "checkBoxPanleucopenia";
+            this.checkBoxPanleucopenia.Size = new System.Drawing.Size(128, 19);
+            this.checkBoxPanleucopenia.TabIndex = 5;
+            this.checkBoxPanleucopenia.Text = "PANLEUCOPENIA";
+            this.checkBoxPanleucopenia.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBoxRabia
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(6, 122);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(83, 19);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "checkBox5";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBoxRabia.AutoSize = true;
+            this.checkBoxRabia.Location = new System.Drawing.Point(6, 133);
+            this.checkBoxRabia.Name = "checkBoxRabia";
+            this.checkBoxRabia.Size = new System.Drawing.Size(66, 19);
+            this.checkBoxRabia.TabIndex = 4;
+            this.checkBoxRabia.Text = "RABIA";
+            this.checkBoxRabia.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // checkBoxParvovirosis
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(7, 147);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(83, 19);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "checkBox6";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBoxParvovirosis.AutoSize = true;
+            this.checkBoxParvovirosis.Location = new System.Drawing.Point(6, 97);
+            this.checkBoxParvovirosis.Name = "checkBoxParvovirosis";
+            this.checkBoxParvovirosis.Size = new System.Drawing.Size(113, 19);
+            this.checkBoxParvovirosis.TabIndex = 3;
+            this.checkBoxParvovirosis.Text = "PARVOVIROSIS";
+            this.checkBoxParvovirosis.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxLeptospirosis
+            // 
+            this.checkBoxLeptospirosis.AutoSize = true;
+            this.checkBoxLeptospirosis.Location = new System.Drawing.Point(6, 72);
+            this.checkBoxLeptospirosis.Name = "checkBoxLeptospirosis";
+            this.checkBoxLeptospirosis.Size = new System.Drawing.Size(117, 19);
+            this.checkBoxLeptospirosis.TabIndex = 2;
+            this.checkBoxLeptospirosis.Text = "LEPTOSPIROSIS";
+            this.checkBoxLeptospirosis.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHepatitis
+            // 
+            this.checkBoxHepatitis.AutoSize = true;
+            this.checkBoxHepatitis.Location = new System.Drawing.Point(6, 47);
+            this.checkBoxHepatitis.Name = "checkBoxHepatitis";
+            this.checkBoxHepatitis.Size = new System.Drawing.Size(128, 19);
+            this.checkBoxHepatitis.TabIndex = 1;
+            this.checkBoxHepatitis.Text = "HEPATITIS VIRAL";
+            this.checkBoxHepatitis.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMoquillo
+            // 
+            this.checkBoxMoquillo.AutoSize = true;
+            this.checkBoxMoquillo.Location = new System.Drawing.Point(7, 22);
+            this.checkBoxMoquillo.Name = "checkBoxMoquillo";
+            this.checkBoxMoquillo.Size = new System.Drawing.Size(92, 19);
+            this.checkBoxMoquillo.TabIndex = 0;
+            this.checkBoxMoquillo.Text = "MOQUILLO";
+            this.checkBoxMoquillo.UseVisualStyleBackColor = true;
             // 
             // CargarMascotaForm
             // 
@@ -488,11 +526,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxPanleucopenia;
+        private System.Windows.Forms.CheckBox checkBoxRabia;
+        private System.Windows.Forms.CheckBox checkBoxParvovirosis;
+        private System.Windows.Forms.CheckBox checkBoxLeptospirosis;
+        private System.Windows.Forms.CheckBox checkBoxHepatitis;
+        private System.Windows.Forms.CheckBox checkBoxMoquillo;
+        private System.Windows.Forms.CheckBox checkBoxClamidiosis;
+        private System.Windows.Forms.CheckBox checkBoxLeucemia;
+        private System.Windows.Forms.CheckBox checkBoxInfluenza;
     }
 }
