@@ -25,6 +25,7 @@ namespace Prueba3form
             InitializeComponent();
             activarbotones(true);
             cargarlalista("cliente");
+            rdbTodos.Checked = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace Prueba3form
             listBox1.Enabled = false;
             btnBaja.Enabled = false;
             checkBoxActivo.Checked = true;
+            btnAlta.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -193,8 +195,10 @@ namespace Prueba3form
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int sel = listBox1.SelectedIndex;
+
             if (sel != -1)
             {
+
                 txtNombre.Text = clientesplista[sel].Nombre;
                 txtApellido.Text = clientesplista[sel].Apellido;
                 txtDocumento.Text = Convert.ToString(clientesplista[sel].Documento);
@@ -310,11 +314,14 @@ namespace Prueba3form
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
             btnBaja.Enabled = !k;
+            groupBox1.Enabled = !k;
+            btnAlta.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
         {
             bd.leertabla(nombretabla);
             int c = 0;
+            
             while (bd.Reader.Read())
             {
                 Clientecls cli = new Clientecls();
@@ -343,7 +350,6 @@ namespace Prueba3form
                 if (!bd.Reader.IsDBNull(11))
                     cli.Activo = bd.Reader.GetBoolean(11);
                 arrayclientes[c] = cli;
-                clientesplista[c] = cli;
                 c++;
             }
             bd.Reader.Close();
@@ -395,72 +401,128 @@ namespace Prueba3form
                 clientesplista[i] = null;
             }
             listBox1.Items.Clear();
-            for (int i = 0; i < c; i++)
+            int p = 0;
+            if (rdbActivos.Checked == true)
             {
-                int p = 0;
-                if (rdbActivos.Checked == true)
+                for (int i = 0; i < c; i++)
                 {
                     if (arrayclientes[i].Activo == true)
                     {
                         clientesplista[p] = arrayclientes[i];
-                        listBox1.Items.Add(clientesplista[p].Apellido+ " " + clientesplista[p].Nombre);
+                        listBox1.Items.Add(clientesplista[p].Apellido + " " + clientesplista[p].Nombre);
+                        p++;
                     }
                 }
-                if (rdbInactivo.Checked == true)
+            }
+            if (rdbInactivo.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
                 {
                     if (arrayclientes[i].Activo == false)
                     {
                         clientesplista[p] = arrayclientes[i];
                         listBox1.Items.Add(clientesplista[p].Apellido + " " + clientesplista[p].Nombre);
+                        p++;
                     }
                 }
-                if (rdbTodos.Checked == true)
+            }
+            if (rdbTodos.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
                 {
                     if (arrayclientes[i].Activo == true || arrayclientes[i].Activo == false)
                     {
                         clientesplista[p] = arrayclientes[i];
-                        listBox1.Items.Add(arrayclientes[i].Apellido + " " + arrayclientes[i].Nombre);
+                        listBox1.Items.Add(clientesplista[i].Apellido + " " + clientesplista[i].Nombre);
+                        p++;
                     }
                 }
             }
-            
-
-
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-    
+            string consultasql = "update cliente set activo = false where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
+            bd.modificarbd(consultasql);
+            cargarlalista("cliente");
+            clienteplista();
+            activarbotones(true);
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            string consultasql = "update cliente set activo = true where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
+            bd.modificarbd(consultasql);
+            cargarlalista("cliente");
+            clienteplista();
+            activarbotones(true);
         }
-
         private void btnNuevo_MouseEnter(object sender, EventArgs e)
         {
             btnNuevo.BackColor = Color.Green;
         }
-
         private void btnNuevo_MouseLeave(object sender, EventArgs e)
         {
             btnNuevo.BackColor = SystemColors.ActiveBorder;
         }
-
         private void rdbActivos_CheckedChanged(object sender, EventArgs e)
         {
             clienteplista();
         }
-
         private void rdbInactivo_CheckedChanged(object sender, EventArgs e)
         {
             clienteplista();
         }
-
         private void rdbTodos_CheckedChanged(object sender, EventArgs e)
         {
             clienteplista();
+        }
+        private void btnEditar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = Color.Green;
+        }
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnGuardar_MouseEnter(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = Color.Green;
+        }
+        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.Red;
+        }
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnSalir_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.Red;
+        }
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnBaja_MouseEnter(object sender, EventArgs e)
+        {
+            btnBaja.BackColor = Color.Green;
+        }
+        private void btnBaja_MouseLeave(object sender, EventArgs e)
+        {
+            btnBaja.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnAlta_MouseEnter(object sender, EventArgs e)
+        {
+            btnAlta.BackColor = Color.Green;
+        }
+        private void btnAlta_MouseLeave(object sender, EventArgs e)
+        {
+            btnAlta.BackColor = SystemColors.ActiveBorder;
         }
     }
     

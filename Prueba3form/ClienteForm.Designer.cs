@@ -62,9 +62,9 @@
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.btnAlta = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbActivos = new System.Windows.Forms.RadioButton();
-            this.rdbInactivo = new System.Windows.Forms.RadioButton();
             this.rdbTodos = new System.Windows.Forms.RadioButton();
+            this.rdbInactivo = new System.Windows.Forms.RadioButton();
+            this.rdbActivos = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -306,6 +306,8 @@
             this.btnSalir.TabIndex = 24;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
             // btnCancelar
             // 
@@ -318,6 +320,8 @@
             this.btnCancelar.TabIndex = 23;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnGuardar
             // 
@@ -330,6 +334,8 @@
             this.btnGuardar.TabIndex = 22;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnCargar_Click);
+            this.btnGuardar.MouseEnter += new System.EventHandler(this.btnGuardar_MouseEnter);
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
             // 
             // listBox1
             // 
@@ -371,6 +377,8 @@
             this.btnEditar.TabIndex = 27;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditar.MouseEnter += new System.EventHandler(this.btnEditar_MouseEnter);
+            this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditar_MouseLeave);
             // 
             // btnBaja
             // 
@@ -383,6 +391,8 @@
             this.btnBaja.TabIndex = 28;
             this.btnBaja.UseVisualStyleBackColor = false;
             this.btnBaja.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnBaja.MouseEnter += new System.EventHandler(this.btnBaja_MouseEnter);
+            this.btnBaja.MouseLeave += new System.EventHandler(this.btnBaja_MouseLeave);
             // 
             // lblInfo
             // 
@@ -407,6 +417,7 @@
             // checkBoxActivo
             // 
             this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Enabled = false;
             this.checkBoxActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxActivo.Location = new System.Drawing.Point(377, 50);
             this.checkBoxActivo.Name = "checkBoxActivo";
@@ -426,6 +437,8 @@
             this.btnAlta.TabIndex = 35;
             this.btnAlta.UseVisualStyleBackColor = false;
             this.btnAlta.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAlta.MouseEnter += new System.EventHandler(this.btnAlta_MouseEnter);
+            this.btnAlta.MouseLeave += new System.EventHandler(this.btnAlta_MouseLeave);
             // 
             // groupBox1
             // 
@@ -440,18 +453,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FILTRO";
             // 
-            // rdbActivos
+            // rdbTodos
             // 
-            this.rdbActivos.AutoSize = true;
-            this.rdbActivos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbActivos.Location = new System.Drawing.Point(74, 21);
-            this.rdbActivos.Name = "rdbActivos";
-            this.rdbActivos.Size = new System.Drawing.Size(63, 19);
-            this.rdbActivos.TabIndex = 37;
-            this.rdbActivos.TabStop = true;
-            this.rdbActivos.Text = "ACTIV";
-            this.rdbActivos.UseVisualStyleBackColor = true;
-            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTodos.Location = new System.Drawing.Point(203, 21);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(67, 19);
+            this.rdbTodos.TabIndex = 39;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "TODOS";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
             // 
             // rdbInactivo
             // 
@@ -466,18 +479,18 @@
             this.rdbInactivo.UseVisualStyleBackColor = true;
             this.rdbInactivo.CheckedChanged += new System.EventHandler(this.rdbInactivo_CheckedChanged);
             // 
-            // rdbTodos
+            // rdbActivos
             // 
-            this.rdbTodos.AutoSize = true;
-            this.rdbTodos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTodos.Location = new System.Drawing.Point(203, 21);
-            this.rdbTodos.Name = "rdbTodos";
-            this.rdbTodos.Size = new System.Drawing.Size(67, 19);
-            this.rdbTodos.TabIndex = 39;
-            this.rdbTodos.TabStop = true;
-            this.rdbTodos.Text = "TODOS";
-            this.rdbTodos.UseVisualStyleBackColor = true;
-            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
+            this.rdbActivos.AutoSize = true;
+            this.rdbActivos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbActivos.Location = new System.Drawing.Point(74, 21);
+            this.rdbActivos.Name = "rdbActivos";
+            this.rdbActivos.Size = new System.Drawing.Size(63, 19);
+            this.rdbActivos.TabIndex = 37;
+            this.rdbActivos.TabStop = true;
+            this.rdbActivos.Text = "ACTIV";
+            this.rdbActivos.UseVisualStyleBackColor = true;
+            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
             // 
             // ClienteForm
             // 
