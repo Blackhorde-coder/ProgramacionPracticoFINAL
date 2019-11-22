@@ -12,7 +12,7 @@ namespace Prueba3form
 {
     public partial class ClienteForm : Form
     {
-        manipulationcls bd = new manipulationcls(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Blackhorde\Documents\GitHub\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb");
+        manipulationcls bd = new manipulationcls(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\mateo\OneDrive\Documentos\GITHUB REPOSITORIOS\ProgramacionPracticoFINAL\Prueba3form\TP Programacion ll.mdb");
         const int tam = 1000;
         Clientecls[] arrayclientes = new Clientecls[tam];
         Mascotacls[] arraymascotas = new Mascotacls[tam];
