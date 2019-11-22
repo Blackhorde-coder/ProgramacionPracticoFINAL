@@ -127,12 +127,13 @@ namespace Prueba3form
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //para el update de mascotas
+       
         }
 
         private void consultarToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            //para consultar sobre las mascotas 
+            ReporteClientesForm rf = new ReporteClientesForm();
+            rf.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,5 +151,11 @@ namespace Prueba3form
             
         }
 
+        private void mascotasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReporteMascotasForm rm = new ReporteMascotasForm();
+            rm.ShowDialog();
+            //crear reporte de mascotas con dueños y tipo
+        }
     }
 }

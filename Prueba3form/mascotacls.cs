@@ -13,8 +13,19 @@ namespace Prueba3form
         private DateTime _fecNac;
         private int _tipo;
         private bool _sexo;
+        private double _peso;
         private string _descripcion;
         private int _id;
+        private bool _moquillo;
+        private bool _hepatitis;
+        private bool _leptospirosis;
+        private bool _parvovirus;
+        private bool _rabica;
+        private bool _panleucopenia;
+        private bool _influenza;
+        private bool _leucemia;
+        private bool _clamidiosis;
+
         //constructores 
         public Mascotacls()
         {
@@ -25,8 +36,18 @@ namespace Prueba3form
             _sexo = true;
             _descripcion = "";
             _cliente = null;
-        }
-        public Mascotacls(int id, string nombre, DateTime fecNac, int tipo, bool sexo, string descripcion, Clientecls c)
+            _peso = 0;
+            _moquillo = false;
+            _hepatitis = false;
+            _leptospirosis = false;
+            _parvovirus = false;
+            _rabica = false;
+            _panleucopenia = false;
+            _influenza = false;
+            _leucemia = false;
+            _clamidiosis = false;
+    }
+        public Mascotacls(int id,string nombre,DateTime fecNac,int tipo,bool sexo,string descripcion,Clientecls c,double peso,bool a,bool b,bool c2,bool d, bool e, bool f, bool g,bool h,bool i)
         {
             _id = id;
             _nombre = nombre;
@@ -35,6 +56,16 @@ namespace Prueba3form
             _sexo = sexo;
             _descripcion = descripcion;
             _cliente = c;
+            _peso = peso;
+            _moquillo = a;
+            _hepatitis = b;
+            _leptospirosis = c2;
+            _parvovirus = d;
+            _rabica = e;
+            _panleucopenia = f;
+            _influenza = g;
+            _leucemia = h;
+            _clamidiosis = i;
         }
 
         public string Nombre1 { get => _nombre; set => _nombre = value; }
@@ -44,6 +75,16 @@ namespace Prueba3form
         public Clientecls Cliente { get => _cliente; set => _cliente = value; }
         public int Id { get => _id; set => _id = value; }
         public bool Sexo { get => _sexo; set => _sexo = value; }
+        public double Peso { get => _peso; set => _peso = value; }
+        public bool Moquillo { get => _moquillo; set => _moquillo = value; }
+        public bool Hepatitis { get => _hepatitis; set => _hepatitis = value; }
+        public bool Leptospirosis { get => _leptospirosis; set => _leptospirosis = value; }
+        public bool Parvovirus { get => _parvovirus; set => _parvovirus = value; }
+        public bool Rabica { get => _rabica; set => _rabica = value; }
+        public bool Panleucopenia { get => _panleucopenia; set => _panleucopenia = value; }
+        public bool Influenza { get => _influenza; set => _influenza = value; }
+        public bool Leucemia { get => _leucemia; set => _leucemia = value; }
+        public bool Clamidiosis { get => _clamidiosis; set => _clamidiosis = value; }
 
         //to string mascotas
         public string toStringMascota()

@@ -16,6 +16,7 @@ namespace Prueba3form
         const int tam = 1000;
         Clientecls[] arrayclientes = new Clientecls[tam];
         Mascotacls[] arraymascotas = new Mascotacls[tam];
+        Clientecls[] clientesplista = new Clientecls[tam];
         bool isnew;
       
 
@@ -24,6 +25,8 @@ namespace Prueba3form
             InitializeComponent();
             activarbotones(true);
             cargarlalista("cliente");
+            rdbTodos.Checked = true;
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -35,10 +38,12 @@ namespace Prueba3form
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnNuevo, "NUEVO CLIENTE");
             toolTip.SetToolTip(btnEditar, "EDITAR CLIENTE");
-            toolTip.SetToolTip(btnEliminar, "ELIMINAR REGISTRO");
+            toolTip.SetToolTip(btnBaja, "DAR BAJA");
+            toolTip.SetToolTip(btnAlta, "DAR ALTA");
             toolTip.SetToolTip(btnCancelar, "CANCELAR");
             toolTip.SetToolTip(btnSalir, "SALIR");
             toolTip.SetToolTip(btnGuardar, "GUARDAR CAMBIOS");
+            toolTip.SetToolTip(lblInfo, "INSERTE AL MENOS UN TELEFONO");
 
         }
 
@@ -47,14 +52,18 @@ namespace Prueba3form
             activarbotones(false);
             isnew = true;
             listBox1.Enabled = false;
-            btnEliminar.Enabled = false;
+            btnBaja.Enabled = false;
+            checkBoxActivo.Checked = true;
+            btnAlta.Enabled = false;
+            cambiarcolortxt("white");
+            groupBox1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.SelectedIndex = 0;
             activarbotones(false);
             isnew = false;
+            cambiarcolortxt("white");
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -100,8 +109,7 @@ namespace Prueba3form
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiarcampos();
-            activarbotones(true);
-            btnEliminar.Enabled = false;
+            activarbotones(true);      
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -109,7 +117,7 @@ namespace Prueba3form
             Clientecls cli = new Clientecls();
             if (validaciones() == true)
             {
-                string consultasql;
+                    string consultasql;
                 cli.Nombre = txtNombre.Text;
                 cli.Apellido = txtApellido.Text;
                 cli.Documento = Convert.ToInt32(txtDocumento.Text);
@@ -119,72 +127,98 @@ namespace Prueba3form
                     cli.Sexo = true;
                 cli.Direccion1 = txtDireccion.Text;
                 cli.Barrio1 = txtBarrio.Text;
-                cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
-                cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
-                cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
-                cli.Movil = Convert.ToInt32(txtTelMovil.Text);
-                if (isnew == true)
+                if (txtCodFijo.Text == "")
+                    cli.Codfijo1 = 0;
+                else
+                    cli.Codfijo1 = Convert.ToInt32(txtCodFijo.Text);
+                if (txtTelFijo.Text == "")
+                    cli.Fijo1 = 0;
+                else
+                    cli.Fijo1 = Convert.ToInt32(txtTelFijo.Text);
+                if (txtCodMovil.Text == "")
+                    cli.Codmovil = 0;
+                else
+                    cli.Codmovil = Convert.ToInt32(txtCodMovil.Text);
+                if (txtTelMovil.Text == "")
+                    cli.Movil = 0;
+                else
+                    cli.Movil = Convert.ToInt32(txtTelMovil.Text);
+                if (checkBoxActivo.Checked == true)
                 {
-                    consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil) values " +
-                                            "('" + cli.Nombre +
-                                            "','" + cli.Apellido +
-                                            "'," + cli.Documento +
-                                            "," + cli.Sexo +
-                                            ",'" + cli.Direccion1 +
-                                            "','" + cli.Barrio1 +
-                                            "'," + cli.Codfijo1 +
-                                            "," + cli.Fijo1 +
-                                            "," + cli.Codmovil +
-                                            "," + cli.Movil +
-                                            ")";
-                    bd.modificarbd(consultasql);
-                    activarbotones(true);
+                    cli.Activo = true;
+                }
+                else
+                    cli.Activo = false;
+
+                if (validartelefono(cli) == true)
+                {
+                    if (isnew == true)
+                    {
+                        consultasql = "insert into cliente (nombre,apellido,dni,sexo,direccion,barrio,cod_area,fijo,cod_area_mov,movil,activo) values " +
+                                                "('" + cli.Nombre +
+                                                "','" + cli.Apellido +
+                                                "'," + cli.Documento +
+                                                "," + cli.Sexo +
+                                                ",'" + cli.Direccion1 +
+                                                "','" + cli.Barrio1 +
+                                                "'," + cli.Codfijo1 +
+                                                "," + cli.Fijo1 +
+                                                "," + cli.Codmovil +
+                                                "," + cli.Movil +
+                                                "," +cli.Activo +
+                                                ")";
+                        bd.modificarbd(consultasql);
+                        activarbotones(true);
+                    }
+                    else
+                    {
+                        consultasql = "update cliente set " +
+                                        "nombre='" + cli.Nombre + "'," +
+                                        "apellido='" + cli.Apellido + "'," +
+                                        "dni=" + cli.Documento + "," +
+                                        "sexo=" + cli.Sexo + "," +
+                                        "direccion='" + cli.Direccion1 + "'," +
+                                        "barrio='" + cli.Barrio1 + "'," +
+                                        "cod_area=" + cli.Codfijo1 + "," +
+                                        "fijo=" + cli.Fijo1 + "," +
+                                        "cod_area_mov=" + cli.Codmovil + "," +
+                                        "movil=" + cli.Movil + " " +
+                                        "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
+                        bd.modificarbd(consultasql);
+                        activarbotones(true);
+                    }
+                    limpiarcampos();
+                    cargarlalista("cliente");
                 }
                 else
                 {
-                    consultasql = "update cliente set " +
-                                    "nombre='" + cli.Nombre + "'," +
-                                    "apellido='" + cli.Apellido + "'," +
-                                    "dni=" + cli.Documento + "," +
-                                    "sexo=" + cli.Sexo + "," +
-                                    "direccion='" + cli.Direccion1 + "'," +
-                                    "barrio='" + cli.Barrio1 + "'," +
-                                    "cod_area=" + cli.Codfijo1 + "," +
-                                    "fijo=" + cli.Fijo1 + "," +
-                                    "cod_area_mov=" + cli.Codmovil + "," +
-                                    "movil=" + cli.Movil + " " +
-                                    "where id= " + arrayclientes[listBox1.SelectedIndex].ClienteID;
-                    bd.modificarbd(consultasql);
-                    activarbotones(true);
+                    MessageBox.Show("CORROBORE LOS NUMEROS TELEFONICOS");
+                    txtCodFijo.Focus();
                 }
-                limpiarcampos();
-                cargarlalista("cliente");
+                cambiarcolortxt("control");
             }
-            else
-            {
-
-            }
-            btnEliminar.Enabled = false;
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int sel = listBox1.SelectedIndex;
+
             if (sel != -1)
             {
-                btnEliminar.Enabled = true;
-                txtNombre.Text = arrayclientes[sel].Nombre;
-                txtApellido.Text = arrayclientes[sel].Apellido;
-                txtDocumento.Text = Convert.ToString(arrayclientes[sel].Documento);
-                txtDireccion.Text = arrayclientes[sel].Direccion1;
-                txtBarrio.Text = arrayclientes[sel].Barrio1;
-                if (arrayclientes[sel].Sexo == true)
+
+                txtNombre.Text = clientesplista[sel].Nombre;
+                txtApellido.Text = clientesplista[sel].Apellido;
+                txtDocumento.Text = Convert.ToString(clientesplista[sel].Documento);
+                txtDireccion.Text = clientesplista[sel].Direccion1;
+                txtBarrio.Text = clientesplista[sel].Barrio1;
+                if (clientesplista[sel].Sexo == true)
                     rdbMasculino.Checked = true;
-                else if (arrayclientes[sel].Sexo == false)
+                else if (clientesplista[sel].Sexo == false)
                     rdbFemenino.Checked = true;
-                txtCodFijo.Text = Convert.ToString(arrayclientes[sel].Codfijo1);
-                txtCodMovil.Text = Convert.ToString(arrayclientes[sel].Codmovil);
-                txtTelFijo.Text = Convert.ToString(arrayclientes[sel].Fijo1);
-                txtTelMovil.Text = Convert.ToString(arrayclientes[sel].Movil);
+                txtCodFijo.Text = Convert.ToString(clientesplista[sel].Codfijo1);
+                txtCodMovil.Text = Convert.ToString(clientesplista[sel].Codmovil);
+                txtTelFijo.Text = Convert.ToString(clientesplista[sel].Fijo1);
+                txtTelMovil.Text = Convert.ToString(clientesplista[sel].Movil);
+                checkBoxActivo.Checked = clientesplista[sel].Activo;
             }
             else
             {
@@ -195,51 +229,67 @@ namespace Prueba3form
         {
             if (txtNombre.Text == "")
             {
-                MessageBox.Show("CARGAR NOMBRE","FALTANTE");
+                MessageBox.Show("CARGAR NOMBRE");
+                txtNombre.BackColor = Color.Red;
                 txtNombre.Focus();
                 return false;
             }
             if (txtApellido.Text == "")
             {
-                MessageBox.Show("CARGAR APELLIDO","FALTANTE");
+                MessageBox.Show("CARGAR APELLIDO");
+                txtApellido.BackColor = Color.Red;
                 txtApellido.Focus();
                 return false;
             }
             if (txtDocumento.Text == "")
             {
-                MessageBox.Show("CARGAR DOCUMENTO","FALTANTE");
+                MessageBox.Show("CARGAR DOCUMENTO");
+                txtDocumento.BackColor = Color.Red;
                 txtDocumento.Focus();
                 return false;
             }
             if (rdbFemenino.Checked == false && rdbMasculino.Checked == false)
             {
-                MessageBox.Show("SELECCIONE SEXO","SEXO");
+                MessageBox.Show("SELECCIONE SEXO");
                 return false;
             }
             if ((txtCodFijo.Text != "" && txtTelFijo.Text == "") || (txtTelFijo.Text != "" && txtCodFijo.Text==""))
             {
                 MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodFijo.BackColor = Color.Red;
+                txtTelFijo.BackColor = Color.Red;
                 txtCodFijo.Focus();
                 return false;
             }
             if ((txtCodMovil.Text != "" && txtTelMovil.Text == "") || (txtCodMovil.Text == "" && txtTelMovil.Text != ""))
             {
                 MessageBox.Show("INDIQUE CODIGO DE AREA Y TELEFONO");
+                txtCodMovil.BackColor = Color.Red;
+                txtTelMovil.BackColor = Color.Red;
                 txtCodMovil.Focus();
                 return false;
             }
-            if (txtCodFijo.Text == "" && txtTelFijo.Text == "")
+            if (txtCodFijo.Text == "" && txtCodMovil.Text == "")
             {
-                txtCodFijo.Text = Convert.ToString(0);
-                txtTelFijo.Text = Convert.ToString(0);
-                return true;
+                MessageBox.Show("ES NECESARIO AL MENOS UN TELEFONO");
+                txtCodMovil.BackColor = Color.Red;
+                txtTelMovil.BackColor = Color.Red;
+                txtCodFijo.BackColor = Color.Red;
+                txtTelFijo.BackColor = Color.Red;
+                txtCodFijo.Focus();
+                return false;
             }
-            if (txtCodMovil.Text == "" && txtTelMovil.Text == "")
-            {
-                txtTelMovil.Text = Convert.ToString(0);
-                txtCodMovil.Text = Convert.ToString(0);
+            else
                 return true;
-            }
+        }
+        private bool validartelefono(Clientecls c)
+        {
+            if (c.Codfijo1 == 0 && c.Fijo1 == 0 && c.Movil == 0 && c.Codmovil == 0)
+                return false;
+            if (c.Codfijo1 == 0 && c.Fijo1 != 0 || c.Fijo1 == 0 && c.Codfijo1 != 0)
+                return false;
+            if (c.Codmovil == 0 && c.Movil != 0 || c.Movil == 0 && c.Codmovil != 0)
+                return false;
             else
                 return true;
         }
@@ -280,15 +330,19 @@ namespace Prueba3form
             txtBarrio.Enabled = !k;
             btnCancelar.Enabled = !k;
             btnGuardar.Enabled = !k;
+            btnBaja.Enabled = !k;
+            groupBox1.Enabled = !k;
+            btnAlta.Enabled = !k;
         }
         private void cargarlalista(string nombretabla)
         {
             bd.leertabla(nombretabla);
             int c = 0;
+            
             while (bd.Reader.Read())
             {
                 Clientecls cli = new Clientecls();
-                if (!bd.Reader.IsDBNull(0))
+                if(!bd.Reader.IsDBNull(0))
                     cli.ClienteID = bd.Reader.GetInt32(0);
                 if (!bd.Reader.IsDBNull(1))
                     cli.Nombre = bd.Reader.GetString(1);
@@ -310,6 +364,8 @@ namespace Prueba3form
                     cli.Codmovil = bd.Reader.GetInt32(9);
                 if (!bd.Reader.IsDBNull(10))
                     cli.Movil = bd.Reader.GetInt32(10);
+                if (!bd.Reader.IsDBNull(11))
+                    cli.Activo = bd.Reader.GetBoolean(11);
                 arrayclientes[c] = cli;
                 c++;
             }
@@ -328,26 +384,19 @@ namespace Prueba3form
             while (bd.Reader.Read())
             {
                 Mascotacls m = new Mascotacls();
-                if (!bd.Reader.IsDBNull(0))
-                    m.Id = bd.Reader.GetInt32(0);
-                if (!bd.Reader.IsDBNull(1))
-                    m.Nombre1 = bd.Reader.GetString(1);
-                if (!bd.Reader.IsDBNull(2))
-                    m.FecNac = bd.Reader.GetDateTime(2);
-                if (!bd.Reader.IsDBNull(3))
-                    m.Tipo = bd.Reader.GetInt32(3);
-                if (!bd.Reader.IsDBNull(4))
-                    m.Descripcion = bd.Reader.GetString(4);
+                m.Id = bd.Reader.GetInt32(0);
+                m.Nombre1 = bd.Reader.GetString(1);
+                m.FecNac = bd.Reader.GetDateTime(2);
+                m.Tipo = bd.Reader.GetInt32(3);
+                m.Descripcion = bd.Reader.GetString(4);
                 Clientecls c = new Clientecls();
                 m.Cliente = c;
-                if (!bd.Reader.IsDBNull(5))
-                    m.Cliente.ClienteID = bd.Reader.GetInt32(5);
+                m.Cliente.ClienteID = bd.Reader.GetInt32(5);
                 arraymascotas[cm] = m;
                 cm++;
             }
             bd.Reader.Close();
             bd.desconectar();
-
         }
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
@@ -358,32 +407,168 @@ namespace Prueba3form
                 e.Handled = false;
             else
                 e.Handled = true;
+            cambiarcolortxt("white");
+        }
+        private void clienteplista()
+        {
+            int c = arrayclientes.Count(x => x != null);
+
+            for (int i = 0; i < c; i++)
+            {
+                clientesplista[i] = null;
+            }
+            listBox1.Items.Clear();
+            int p = 0;
+            if (rdbActivos.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arrayclientes[i].Activo == true)
+                    {
+                        clientesplista[p] = arrayclientes[i];
+                        listBox1.Items.Add(clientesplista[p].Apellido + " " + clientesplista[p].Nombre);
+                        p++;
+                    }
+                }
+            }
+            if (rdbInactivo.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arrayclientes[i].Activo == false)
+                    {
+                        clientesplista[p] = arrayclientes[i];
+                        listBox1.Items.Add(clientesplista[p].Apellido + " " + clientesplista[p].Nombre);
+                        p++;
+                    }
+                }
+            }
+            if (rdbTodos.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arrayclientes[i].Activo == true || arrayclientes[i].Activo == false)
+                    {
+                        clientesplista[p] = arrayclientes[i];
+                        listBox1.Items.Add(clientesplista[i].Apellido + " " + clientesplista[i].Nombre);
+                        p++;
+                    }
+                }
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-           
-            int sel = listBox1.SelectedIndex;
-            arraymas();//llamado al metodo array mascotas
-            int c = arraymascotas.Count(x=>x!=null);//contador de elementos del array mascotas
-            int f = arrayclientes.Count(x => x != null);//no hace falta
-            
-            for (int i = 0; i <c ; i++)
+            string consultasql = "update cliente set activo = false where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
+            bd.modificarbd(consultasql);
+            cargarlalista("cliente");
+            clienteplista();
+            activarbotones(true);
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string consultasql = "update cliente set activo = true where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
+            bd.modificarbd(consultasql);
+            cargarlalista("cliente");
+            clienteplista();
+            activarbotones(true);
+        }
+        private void btnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            btnNuevo.BackColor = Color.Green;
+        }
+        private void btnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            btnNuevo.BackColor = SystemColors.ActiveBorder;
+        }
+        private void rdbActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            clienteplista();
+        }
+        private void rdbInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+            clienteplista();
+        }
+        private void rdbTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            clienteplista();
+        }
+        private void btnEditar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = Color.Green;
+        }
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnGuardar_MouseEnter(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = Color.Green;
+        }
+        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.Red;
+        }
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnSalir_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.Red;
+        }
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnBaja_MouseEnter(object sender, EventArgs e)
+        {
+            btnBaja.BackColor = Color.Green;
+        }
+        private void btnBaja_MouseLeave(object sender, EventArgs e)
+        {
+            btnBaja.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnAlta_MouseEnter(object sender, EventArgs e)
+        {
+            btnAlta.BackColor = Color.Green;
+        }
+        private void btnAlta_MouseLeave(object sender, EventArgs e)
+        {
+            btnAlta.BackColor = SystemColors.ActiveBorder;
+        }
+        private void cambiarcolortxt(string color)
+        {
+            if (color == "white")
             {
-                if (arrayclientes[sel].ClienteID == arraymascotas[i].Cliente.ClienteID)
-                {
-                    MessageBox.Show("ESTE CLIENTE TIENE LA MASCOTA " + arraymascotas[i].Nombre1 + " ASOCIADA, ELIMINE PRIMERO LA MASCOTA PARA PODER ELIMINAR EL CLIENTE","CUIDADO",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string eliminar = "delete from cliente where id= " + arrayclientes[sel].ClienteID;
-                    bd.modificarbd(eliminar);
-                    cargarlalista("cliente");
-                    MessageBox.Show("CLIENTE ELIMINADO");
-                    limpiarcampos();
-                }
+                txtNombre.BackColor = Color.WhiteSmoke;
+                txtApellido.BackColor = Color.WhiteSmoke;
+                txtDocumento.BackColor = Color.WhiteSmoke;
+                txtTelFijo.BackColor = Color.WhiteSmoke;
+                txtTelMovil.BackColor = Color.WhiteSmoke;
+                txtCodFijo.BackColor = Color.WhiteSmoke;
+                txtCodMovil.BackColor = Color.WhiteSmoke;
+                txtDireccion.BackColor = Color.WhiteSmoke;
+                txtBarrio.BackColor = Color.WhiteSmoke;
             }
-   
+            else if (color == "control")
+            {
+                txtNombre.BackColor = SystemColors.ControlLight;
+                txtApellido.BackColor = SystemColors.ControlLight;
+                txtDocumento.BackColor = SystemColors.ControlLight;
+                txtTelFijo.BackColor = SystemColors.ControlLight;
+                txtTelMovil.BackColor = SystemColors.ControlLight;
+                txtCodFijo.BackColor = SystemColors.ControlLight;
+                txtCodMovil.BackColor = SystemColors.ControlLight;
+                txtDireccion.BackColor = SystemColors.ControlLight;
+                txtBarrio.BackColor = SystemColors.ControlLight;
+            }
+
+
         }
     }
     

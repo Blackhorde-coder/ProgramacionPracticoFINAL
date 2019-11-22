@@ -56,11 +56,22 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.btnAlta = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbTodos = new System.Windows.Forms.RadioButton();
+            this.rdbInactivo = new System.Windows.Forms.RadioButton();
+            this.rdbActivos = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNombre.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(150, 48);
             this.txtNombre.MaxLength = 30;
@@ -70,6 +81,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtApellido.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(150, 74);
             this.txtApellido.MaxLength = 30;
@@ -79,9 +91,10 @@
             // 
             // txtDocumento
             // 
+            this.txtDocumento.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDocumento.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.Location = new System.Drawing.Point(150, 123);
-            this.txtDocumento.MaxLength = 10;
+            this.txtDocumento.MaxLength = 8;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(218, 22);
             this.txtDocumento.TabIndex = 5;
@@ -89,6 +102,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDireccion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(150, 149);
             this.txtDireccion.MaxLength = 30;
@@ -99,6 +113,7 @@
             // 
             // txtBarrio
             // 
+            this.txtBarrio.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtBarrio.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarrio.Location = new System.Drawing.Point(150, 175);
             this.txtBarrio.MaxLength = 30;
@@ -109,9 +124,10 @@
             // 
             // txtTelFijo
             // 
+            this.txtTelFijo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtTelFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelFijo.Location = new System.Drawing.Point(255, 201);
-            this.txtTelFijo.MaxLength = 15;
+            this.txtTelFijo.MaxLength = 8;
             this.txtTelFijo.Name = "txtTelFijo";
             this.txtTelFijo.Size = new System.Drawing.Size(113, 22);
             this.txtTelFijo.TabIndex = 8;
@@ -184,9 +200,10 @@
             // 
             // txtTelMovil
             // 
+            this.txtTelMovil.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtTelMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelMovil.Location = new System.Drawing.Point(255, 227);
-            this.txtTelMovil.MaxLength = 15;
+            this.txtTelMovil.MaxLength = 8;
             this.txtTelMovil.Name = "txtTelMovil";
             this.txtTelMovil.Size = new System.Drawing.Size(113, 22);
             this.txtTelMovil.TabIndex = 13;
@@ -239,9 +256,10 @@
             // 
             // txtCodFijo
             // 
+            this.txtCodFijo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCodFijo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodFijo.Location = new System.Drawing.Point(150, 201);
-            this.txtCodFijo.MaxLength = 6;
+            this.txtCodFijo.MaxLength = 4;
             this.txtCodFijo.Name = "txtCodFijo";
             this.txtCodFijo.Size = new System.Drawing.Size(78, 22);
             this.txtCodFijo.TabIndex = 18;
@@ -249,6 +267,7 @@
             // 
             // txtCodMovil
             // 
+            this.txtCodMovil.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCodMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodMovil.Location = new System.Drawing.Point(150, 227);
             this.txtCodMovil.MaxLength = 6;
@@ -279,52 +298,63 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Location = new System.Drawing.Point(564, 303);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(132, 46);
             this.btnSalir.TabIndex = 24;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancelar.Location = new System.Drawing.Point(426, 303);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(132, 46);
             this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuardar.BackgroundImage")));
             this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnGuardar.Location = new System.Drawing.Point(288, 303);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(132, 46);
             this.btnGuardar.TabIndex = 22;
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnCargar_Click);
+            this.btnGuardar.MouseEnter += new System.EventHandler(this.btnGuardar_MouseEnter);
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listBox1.Enabled = false;
             this.listBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(491, 12);
+            this.listBox1.Location = new System.Drawing.Point(491, 31);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 270);
+            this.listBox1.Size = new System.Drawing.Size(205, 213);
             this.listBox1.TabIndex = 25;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btnNuevo
             // 
+            this.btnNuevo.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
             this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnNuevo.Location = new System.Drawing.Point(12, 303);
@@ -332,38 +362,161 @@
             this.btnNuevo.Size = new System.Drawing.Size(132, 46);
             this.btnNuevo.TabIndex = 26;
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
+            this.btnNuevo.MouseEnter += new System.EventHandler(this.btnNuevo_MouseEnter);
+            this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
             // 
             // btnEditar
             // 
+            this.btnEditar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEditar.Location = new System.Drawing.Point(150, 303);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(132, 46);
             this.btnEditar.TabIndex = 27;
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditar.MouseEnter += new System.EventHandler(this.btnEditar_MouseEnter);
+            this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditar_MouseLeave);
             // 
-            // btnEliminar
+            // btnBaja
             // 
-            this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(12, 12);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 34);
-            this.btnEliminar.TabIndex = 28;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnBaja.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnBaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBaja.BackgroundImage")));
+            this.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBaja.Location = new System.Drawing.Point(374, 74);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(46, 44);
+            this.btnBaja.TabIndex = 28;
+            this.btnBaja.UseVisualStyleBackColor = false;
+            this.btnBaja.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnBaja.MouseEnter += new System.EventHandler(this.btnBaja_MouseEnter);
+            this.btnBaja.MouseLeave += new System.EventHandler(this.btnBaja_MouseLeave);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(374, 206);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(13, 15);
+            this.lblInfo.TabIndex = 29;
+            this.lblInfo.Text = "?";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(528, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(140, 15);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "CLIENTES EXISTENTES";
+            // 
+            // checkBoxActivo
+            // 
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Enabled = false;
+            this.checkBoxActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxActivo.Location = new System.Drawing.Point(377, 50);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(73, 19);
+            this.checkBoxActivo.TabIndex = 34;
+            this.checkBoxActivo.Text = "ACTIVO";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
+            // btnAlta
+            // 
+            this.btnAlta.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnAlta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAlta.BackgroundImage")));
+            this.btnAlta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAlta.Location = new System.Drawing.Point(426, 74);
+            this.btnAlta.Name = "btnAlta";
+            this.btnAlta.Size = new System.Drawing.Size(46, 44);
+            this.btnAlta.TabIndex = 35;
+            this.btnAlta.UseVisualStyleBackColor = false;
+            this.btnAlta.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAlta.MouseEnter += new System.EventHandler(this.btnAlta_MouseEnter);
+            this.btnAlta.MouseLeave += new System.EventHandler(this.btnAlta_MouseLeave);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbTodos);
+            this.groupBox1.Controls.Add(this.rdbInactivo);
+            this.groupBox1.Controls.Add(this.rdbActivos);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(426, 250);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 47);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "FILTRO";
+            // 
+            // rdbTodos
+            // 
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTodos.Location = new System.Drawing.Point(203, 21);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(67, 19);
+            this.rdbTodos.TabIndex = 39;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "TODOS";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
+            // 
+            // rdbInactivo
+            // 
+            this.rdbInactivo.AutoSize = true;
+            this.rdbInactivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbInactivo.Location = new System.Drawing.Point(138, 21);
+            this.rdbInactivo.Name = "rdbInactivo";
+            this.rdbInactivo.Size = new System.Drawing.Size(64, 19);
+            this.rdbInactivo.TabIndex = 38;
+            this.rdbInactivo.TabStop = true;
+            this.rdbInactivo.Text = "INACT";
+            this.rdbInactivo.UseVisualStyleBackColor = true;
+            this.rdbInactivo.CheckedChanged += new System.EventHandler(this.rdbInactivo_CheckedChanged);
+            // 
+            // rdbActivos
+            // 
+            this.rdbActivos.AutoSize = true;
+            this.rdbActivos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbActivos.Location = new System.Drawing.Point(74, 21);
+            this.rdbActivos.Name = "rdbActivos";
+            this.rdbActivos.Size = new System.Drawing.Size(63, 19);
+            this.rdbActivos.TabIndex = 37;
+            this.rdbActivos.TabStop = true;
+            this.rdbActivos.Text = "ACTIV";
+            this.rdbActivos.UseVisualStyleBackColor = true;
+            this.rdbActivos.CheckedChanged += new System.EventHandler(this.rdbActivos_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(178, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 15);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "DATOS DEL CLIENTE";
             // 
             // ClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(716, 361);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnAlta);
+            this.Controls.Add(this.checkBoxActivo);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.listBox1);
@@ -394,6 +547,8 @@
             this.Name = "ClienteForm";
             this.Text = "CLIENTE";
             this.Load += new System.EventHandler(this.ClienteForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,6 +582,15 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnBaja;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
+        private System.Windows.Forms.Button btnAlta;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbTodos;
+        private System.Windows.Forms.RadioButton rdbInactivo;
+        private System.Windows.Forms.RadioButton rdbActivos;
+        private System.Windows.Forms.Label label12;
     }
 }
