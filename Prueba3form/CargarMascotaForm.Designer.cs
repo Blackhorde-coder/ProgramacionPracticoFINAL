@@ -78,6 +78,8 @@
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnCargar_Click);
+            this.btnGuardar.MouseEnter += new System.EventHandler(this.btnGuardar_MouseEnter);
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
             // 
             // btnCancelar
             // 
@@ -90,6 +92,8 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnSalir
             // 
@@ -103,6 +107,8 @@
             this.btnSalir.TabIndex = 2;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
             // cmbTipo
             // 
@@ -219,6 +225,8 @@
             this.btnCliente.TabIndex = 13;
             this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            this.btnCliente.MouseEnter += new System.EventHandler(this.btnCliente_MouseEnter);
+            this.btnCliente.MouseLeave += new System.EventHandler(this.btnCliente_MouseLeave);
             // 
             // txtPeso
             // 
@@ -252,6 +260,8 @@
             this.btnActualizarLista.TabIndex = 16;
             this.btnActualizarLista.UseVisualStyleBackColor = false;
             this.btnActualizarLista.Click += new System.EventHandler(this.btnActualizarLista_Click);
+            this.btnActualizarLista.MouseEnter += new System.EventHandler(this.btnActualizarLista_MouseEnter);
+            this.btnActualizarLista.MouseLeave += new System.EventHandler(this.btnActualizarLista_MouseLeave);
             // 
             // rdbMacho
             // 
@@ -308,6 +318,8 @@
             this.btnEditar.TabIndex = 32;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnEditar.MouseEnter += new System.EventHandler(this.btnEditar_MouseEnter);
+            this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditar_MouseLeave);
             // 
             // btnNuevo
             // 
@@ -321,6 +333,8 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnNuevo.MouseEnter += new System.EventHandler(this.btnNuevo_MouseEnter);
+            this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
             // 
             // label8
             // 
@@ -343,6 +357,8 @@
             this.btnEliminar.TabIndex = 34;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
+            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
             // 
             // groupBox1
             // 

@@ -393,7 +393,6 @@ namespace Prueba3form
                 m.Cliente = c;
                 m.Cliente.ClienteID = bd.Reader.GetInt32(5);
                 arraymascotas[cm] = m;
-                
                 cm++;
             }
             bd.Reader.Close();

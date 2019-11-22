@@ -27,6 +27,7 @@ namespace Prueba3form
             cargarcombo(cmbTipo,"tipo_id");
             botonesenable(false);
             cargarlistamascotas("mascota");
+            groupBox1.Enabled = false;
         }
         private void CargarMascotaForm_Load(object sender, EventArgs e)
         {
@@ -46,12 +47,17 @@ namespace Prueba3form
             listMascotas.Enabled = false;
             nuevo = true;
             btnEliminar.Enabled = false;
+            groupBox1.Enabled = true;
+            colorex("white");
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             botonesenable(true);
             nuevo = false;
+            groupBox1.Enabled = true;
+            colorex("white");
+            listMascotas.BackColor = Color.WhiteSmoke;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -63,6 +69,7 @@ namespace Prueba3form
         {
             limpiarcampos();
             botonesenable(false);
+            groupBox1.Enabled = true;
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -80,18 +87,37 @@ namespace Prueba3form
                     m.Sexo = false;
                 else
                     m.Sexo = true;
+                m.Moquillo = checkBoxMoquillo.Checked;
+                m.Hepatitis = checkBoxHepatitis.Checked;
+                m.Leptospirosis = checkBoxLeptospirosis.Checked;
+                m.Parvovirus = checkBoxParvovirosis.Checked;
+                m.Rabica = checkBoxRabia.Checked;
+                m.Panleucopenia = checkBoxPanleucopenia.Checked;
+                m.Influenza = checkBoxInfluenza.Checked;
+                m.Leucemia = checkBoxLeucemia.Checked;
+                m.Clamidiosis = checkBoxClamidiosis.Checked;
             //cargar en la basde de datos
             
                 if (nuevo == true)
                 {
-                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id) values " +
+                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id,moquillo,hepatitis,leptospirosis,parvovirosis,rabia,panleucopenia,influenza,leucemia,clamidiosis) values " +
                                           "('" + m.Nombre1 +
                                           "','" + m.FecNac +
                                           "'," + m.Tipo +
                                           "," + m.Sexo +
                                           "," + m.Peso +
                                           ",'" + m.Descripcion +
-                                          "'," + m.Cliente.ClienteID + ")";
+                                          "'," + m.Cliente.ClienteID +
+                                          "," +m.Moquillo+
+                                          ","+m.Hepatitis+
+                                          ","+m.Leptospirosis+
+                                          ","+m.Parvovirus+
+                                          ","+m.Rabica+
+                                          ","+m.Panleucopenia+
+                                          ","+m.Influenza+
+                                          ","+m.Leucemia+
+                                          ","+m.Clamidiosis                                 
+                                          +")";
                     bd.modificarbd(consultasql);
                     cargarlistamascotas("mascota");
                 }
@@ -104,12 +130,24 @@ namespace Prueba3form
                                             "sexo= " + m.Sexo + "," +
                                             "peso= " + m.Peso + "," +
                                             "descripcion= '" + m.Descripcion + "'," +
-                                            "cliente_id= " + m.Cliente.ClienteID + " " +
+                                            "cliente_id= " + m.Cliente.ClienteID + "," +
+                                            "moquillo= " +m.Moquillo +"," +
+                                            "hepatitis= "+m.Hepatitis + ","+
+                                            "leptospirosis= "+m.Leptospirosis+","+
+                                            "parvovirosis= "+m.Parvovirus+","+
+                                            "rabia= "+m.Rabica+","+
+                                            "panleucopenia= "+m.Panleucopenia+","+
+                                            "influenza= "+m.Influenza+ ","+
+                                            "leucemia= "+m.Leucemia+ ","+
+                                            "clamidiosis= "+m.Clamidiosis+" "+
                                             "where id= " + arraymascotas[listMascotas.SelectedIndex].Id;
                     bd.modificarbd(consultasql);
                     cargarlistamascotas("mascota");
 
                 }
+                botonesenable(false);
+                groupBox1.Enabled = false;
+                limpiarcampos();
             }
         }
 
@@ -229,6 +267,15 @@ namespace Prueba3form
                 mas.Cliente = cli;
                 if (!bd.Reader.IsDBNull(7))
                     mas.Cliente.ClienteID = bd.Reader.GetInt32(7);
+                mas.Moquillo = bd.Reader.GetBoolean(8);
+                mas.Hepatitis = bd.Reader.GetBoolean(9);
+                mas.Leptospirosis = bd.Reader.GetBoolean(10);
+                mas.Parvovirus = bd.Reader.GetBoolean(11);
+                mas.Rabica = bd.Reader.GetBoolean(12);
+                mas.Panleucopenia = bd.Reader.GetBoolean(13);
+                mas.Influenza = bd.Reader.GetBoolean(14);
+                mas.Leucemia = bd.Reader.GetBoolean(15);
+                mas.Clamidiosis = bd.Reader.GetBoolean(16);
                 arraymascotas[c] = mas;
                 c++;
             }
@@ -331,6 +378,16 @@ namespace Prueba3form
                 else
                     rdbHembra.Checked = true;
                 dtpFechaNac.Value = arraymascotas[sel].FecNac;
+                checkBoxMoquillo.Checked = arraymascotas[sel].Moquillo;
+                checkBoxClamidiosis.Checked = arraymascotas[sel].Clamidiosis;
+                checkBoxHepatitis.Checked = arraymascotas[sel].Hepatitis;
+                checkBoxLeptospirosis.Checked = arraymascotas[sel].Leptospirosis;
+                checkBoxParvovirosis.Checked = arraymascotas[sel].Parvovirus;
+                checkBoxRabia.Checked = arraymascotas[sel].Rabica;
+                checkBoxPanleucopenia.Checked = arraymascotas[sel].Panleucopenia;
+                checkBoxInfluenza.Checked = arraymascotas[sel].Influenza;
+                checkBoxLeucemia.Checked = arraymascotas[sel].Leucemia;
+                cmbTipo.SelectedValue = arraymascotas[sel].Tipo;
                 for (int i = 0; i < c; i++)
                 {
                     if (arrayclientes[i].ClienteID == arraymascotas[sel].Cliente.ClienteID)
@@ -369,6 +426,92 @@ namespace Prueba3form
         private void cmbTipo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             vacunas(cmbTipo.SelectedIndex);
+        }
+        private void colorex(string color)
+        {
+            if (color == "white")
+            {
+                txtNombre.BackColor = Color.WhiteSmoke;
+                txtDescripcion.BackColor = Color.WhiteSmoke;
+                txtPeso.BackColor = Color.WhiteSmoke;
+                listCliente.BackColor = Color.WhiteSmoke;
+                groupBox1.BackColor = Color.WhiteSmoke;
+                cmbTipo.BackColor = Color.WhiteSmoke;
+            }
+            else if (color == "base")
+            {
+                txtNombre.BackColor = SystemColors.ControlLight;
+                txtPeso.BackColor = SystemColors.ControlLight;
+                txtDescripcion.BackColor = SystemColors.ControlLight;
+                listCliente.BackColor = SystemColors.ControlLight;
+                groupBox1.BackColor = SystemColors.ControlLight;
+                cmbTipo.BackColor = SystemColors.ControlLight;
+            }
+        }
+        private void btnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            btnNuevo.BackColor = Color.Green;
+          //  btnNuevo.FlatAppearance.BorderColor = ;
+        }
+        private void btnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            btnNuevo.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnEditar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = Color.Green;
+        }
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnGuardar_MouseEnter(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = Color.Green;
+        }
+        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        {
+            btnGuardar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.Red;
+        }
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnSalir_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.Red;
+        }
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnCliente_MouseEnter(object sender, EventArgs e)
+        {
+            btnCliente.BackColor = Color.Green;
+        }
+        private void btnCliente_MouseLeave(object sender, EventArgs e)
+        {
+            btnCliente.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnActualizarLista_MouseEnter(object sender, EventArgs e)
+        {
+            btnActualizarLista.BackColor = Color.Green;
+        }
+        private void btnActualizarLista_MouseLeave(object sender, EventArgs e)
+        {
+            btnActualizarLista.BackColor = SystemColors.ActiveBorder;
+        }
+        private void btnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEliminar.BackColor = Color.Red;
+        }
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.BackColor = SystemColors.ActiveBorder;
         }
     }
     
