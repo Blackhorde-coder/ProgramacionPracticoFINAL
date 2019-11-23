@@ -25,6 +25,7 @@ namespace Prueba3form
         private bool _influenza;
         private bool _leucemia;
         private bool _clamidiosis;
+        private bool _activo;
 
         //constructores 
         public Mascotacls()
@@ -46,8 +47,9 @@ namespace Prueba3form
             _influenza = false;
             _leucemia = false;
             _clamidiosis = false;
+            _activo = true;
     }
-        public Mascotacls(int id,string nombre,DateTime fecNac,int tipo,bool sexo,string descripcion,Clientecls c,double peso,bool a,bool b,bool c2,bool d, bool e, bool f, bool g,bool h,bool i)
+        public Mascotacls(int id,string nombre,DateTime fecNac,int tipo,bool sexo,string descripcion,Clientecls c,double peso,bool a,bool b,bool c2,bool d, bool e, bool f, bool g,bool h,bool i, bool j)
         {
             _id = id;
             _nombre = nombre;
@@ -66,6 +68,7 @@ namespace Prueba3form
             _influenza = g;
             _leucemia = h;
             _clamidiosis = i;
+            _activo = j;
         }
 
         public string Nombre1 { get => _nombre; set => _nombre = value; }
@@ -85,6 +88,7 @@ namespace Prueba3form
         public bool Influenza { get => _influenza; set => _influenza = value; }
         public bool Leucemia { get => _leucemia; set => _leucemia = value; }
         public bool Clamidiosis { get => _clamidiosis; set => _clamidiosis = value; }
+        public bool Activo { get => _activo; set => _activo = value; }
 
         //to string mascotas
         public string toStringMascota()
