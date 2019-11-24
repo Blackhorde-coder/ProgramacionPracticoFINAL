@@ -159,7 +159,6 @@ namespace Prueba3form
                 limpiarcampos();
             }
         }
-
         private void btnCliente_Click(object sender, EventArgs e)
         {
             ClienteForm cc = new ClienteForm();
