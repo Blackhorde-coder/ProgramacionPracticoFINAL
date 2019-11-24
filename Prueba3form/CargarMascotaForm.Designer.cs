@@ -542,7 +542,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(764, 377);
+            this.ClientSize = new System.Drawing.Size(764, 371);
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -569,6 +569,10 @@
             this.Controls.Add(this.btnGuardar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(780, 410);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(780, 410);
             this.Name = "CargarMascotaForm";
             this.Text = "CARGAR MASCOTA";
             this.TransparencyKey = System.Drawing.Color.Beige;

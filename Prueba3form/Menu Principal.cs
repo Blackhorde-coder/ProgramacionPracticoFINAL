@@ -148,7 +148,7 @@ namespace Prueba3form
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
         {
-            
+            this.MaximizeBox = false;
         }
 
         private void mascotasToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -509,7 +509,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(716, 361);
+            this.ClientSize = new System.Drawing.Size(714, 361);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlta);
@@ -544,6 +544,10 @@
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(730, 400);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(730, 400);
             this.Name = "ClienteForm";
             this.Text = "CLIENTE";
             this.Load += new System.EventHandler(this.ClienteForm_Load);
