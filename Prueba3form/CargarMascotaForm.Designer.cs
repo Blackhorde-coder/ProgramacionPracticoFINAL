@@ -53,7 +53,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxClamidiosis = new System.Windows.Forms.CheckBox();
             this.checkBoxLeucemia = new System.Windows.Forms.CheckBox();
@@ -64,7 +63,15 @@
             this.checkBoxLeptospirosis = new System.Windows.Forms.CheckBox();
             this.checkBoxHepatitis = new System.Windows.Forms.CheckBox();
             this.checkBoxMoquillo = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbActivo = new System.Windows.Forms.RadioButton();
+            this.rdbInactivo = new System.Windows.Forms.RadioButton();
+            this.rdbTodos = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -199,7 +206,7 @@
             this.listCliente.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listCliente.FormattingEnabled = true;
             this.listCliente.ItemHeight = 15;
-            this.listCliente.Location = new System.Drawing.Point(119, 155);
+            this.listCliente.Location = new System.Drawing.Point(63, 8);
             this.listCliente.Name = "listCliente";
             this.listCliente.Size = new System.Drawing.Size(200, 154);
             this.listCliente.TabIndex = 11;
@@ -208,7 +215,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(56, 155);
+            this.label5.Location = new System.Drawing.Point(0, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 12;
@@ -219,7 +226,7 @@
             this.btnCliente.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnCliente.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
-            this.btnCliente.Location = new System.Drawing.Point(325, 155);
+            this.btnCliente.Location = new System.Drawing.Point(269, 8);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(100, 38);
             this.btnCliente.TabIndex = 13;
@@ -254,7 +261,7 @@
             this.btnActualizarLista.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnActualizarLista.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarLista.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizarLista.Image")));
-            this.btnActualizarLista.Location = new System.Drawing.Point(325, 199);
+            this.btnActualizarLista.Location = new System.Drawing.Point(269, 52);
             this.btnActualizarLista.Name = "btnActualizarLista";
             this.btnActualizarLista.Size = new System.Drawing.Size(100, 38);
             this.btnActualizarLista.TabIndex = 16;
@@ -301,9 +308,9 @@
             // 
             this.listMascotas.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listMascotas.FormattingEnabled = true;
-            this.listMascotas.Location = new System.Drawing.Point(564, 41);
+            this.listMascotas.Location = new System.Drawing.Point(560, 30);
             this.listMascotas.Name = "listMascotas";
-            this.listMascotas.Size = new System.Drawing.Size(132, 264);
+            this.listMascotas.Size = new System.Drawing.Size(188, 238);
             this.listMascotas.TabIndex = 20;
             this.listMascotas.SelectedIndexChanged += new System.EventHandler(this.listMascotas_SelectedIndexChanged);
             // 
@@ -340,25 +347,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(593, 18);
+            this.label8.Location = new System.Drawing.Point(628, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 15);
             this.label8.TabIndex = 33;
             this.label8.Text = "MASCOTAS";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(325, 243);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 38);
-            this.btnEliminar.TabIndex = 34;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
-            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
             // 
             // groupBox1
             // 
@@ -469,14 +462,91 @@
             this.checkBoxMoquillo.Text = "MOQUILLO";
             this.checkBoxMoquillo.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnActualizarLista);
+            this.groupBox2.Controls.Add(this.btnCliente);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.listCliente);
+            this.groupBox2.Location = new System.Drawing.Point(56, 147);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(374, 174);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // rdbActivo
+            // 
+            this.rdbActivo.AutoSize = true;
+            this.rdbActivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbActivo.Location = new System.Drawing.Point(5, 22);
+            this.rdbActivo.Name = "rdbActivo";
+            this.rdbActivo.Size = new System.Drawing.Size(51, 19);
+            this.rdbActivo.TabIndex = 37;
+            this.rdbActivo.TabStop = true;
+            this.rdbActivo.Text = "ACT";
+            this.rdbActivo.UseVisualStyleBackColor = true;
+            this.rdbActivo.CheckedChanged += new System.EventHandler(this.rdbActivo_CheckedChanged);
+            // 
+            // rdbInactivo
+            // 
+            this.rdbInactivo.AutoSize = true;
+            this.rdbInactivo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbInactivo.Location = new System.Drawing.Point(62, 22);
+            this.rdbInactivo.Name = "rdbInactivo";
+            this.rdbInactivo.Size = new System.Drawing.Size(56, 19);
+            this.rdbInactivo.TabIndex = 38;
+            this.rdbInactivo.TabStop = true;
+            this.rdbInactivo.Text = "INAC";
+            this.rdbInactivo.UseVisualStyleBackColor = true;
+            this.rdbInactivo.CheckedChanged += new System.EventHandler(this.rdbInactivo_CheckedChanged);
+            // 
+            // rdbTodos
+            // 
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTodos.Location = new System.Drawing.Point(124, 22);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(67, 19);
+            this.rdbTodos.TabIndex = 39;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "TODOS";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdbActivo);
+            this.groupBox3.Controls.Add(this.rdbTodos);
+            this.groupBox3.Controls.Add(this.rdbInactivo);
+            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(559, 274);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(193, 46);
+            this.groupBox3.TabIndex = 40;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "FILTRO";
+            // 
+            // checkBoxActivo
+            // 
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Location = new System.Drawing.Point(323, 97);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxActivo.TabIndex = 9;
+            this.checkBoxActivo.Text = "ACTIVO";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
             // CargarMascotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(713, 379);
+            this.ClientSize = new System.Drawing.Size(764, 371);
+            this.Controls.Add(this.checkBoxActivo);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
@@ -484,12 +554,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rdbHembra);
             this.Controls.Add(this.rdbMacho);
-            this.Controls.Add(this.btnActualizarLista);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPeso);
-            this.Controls.Add(this.btnCliente);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.listCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFechaNac);
@@ -503,12 +569,20 @@
             this.Controls.Add(this.btnGuardar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(780, 410);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(780, 410);
             this.Name = "CargarMascotaForm";
             this.Text = "CARGAR MASCOTA";
             this.TransparencyKey = System.Drawing.Color.Beige;
             this.Load += new System.EventHandler(this.CargarMascotaForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,7 +614,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxPanleucopenia;
         private System.Windows.Forms.CheckBox checkBoxRabia;
@@ -551,5 +624,11 @@
         private System.Windows.Forms.CheckBox checkBoxClamidiosis;
         private System.Windows.Forms.CheckBox checkBoxLeucemia;
         private System.Windows.Forms.CheckBox checkBoxInfluenza;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rdbActivo;
+        private System.Windows.Forms.RadioButton rdbInactivo;
+        private System.Windows.Forms.RadioButton rdbTodos;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
     }
 }

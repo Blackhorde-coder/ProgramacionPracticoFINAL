@@ -77,7 +77,7 @@
             this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(218, 22);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.TabIndex = 0;
             // 
             // txtApellido
             // 
@@ -87,7 +87,7 @@
             this.txtApellido.MaxLength = 30;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(218, 22);
-            this.txtApellido.TabIndex = 4;
+            this.txtApellido.TabIndex = 1;
             // 
             // txtDocumento
             // 
@@ -97,7 +97,7 @@
             this.txtDocumento.MaxLength = 8;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(218, 22);
-            this.txtDocumento.TabIndex = 5;
+            this.txtDocumento.TabIndex = 4;
             this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtDireccion
@@ -108,7 +108,7 @@
             this.txtDireccion.MaxLength = 30;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(218, 22);
-            this.txtDireccion.TabIndex = 6;
+            this.txtDireccion.TabIndex = 5;
             this.txtDireccion.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtBarrio
@@ -119,7 +119,7 @@
             this.txtBarrio.MaxLength = 30;
             this.txtBarrio.Name = "txtBarrio";
             this.txtBarrio.Size = new System.Drawing.Size(218, 22);
-            this.txtBarrio.TabIndex = 7;
+            this.txtBarrio.TabIndex = 6;
             this.txtBarrio.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txtTelFijo
@@ -206,7 +206,7 @@
             this.txtTelMovil.MaxLength = 8;
             this.txtTelMovil.Name = "txtTelMovil";
             this.txtTelMovil.Size = new System.Drawing.Size(113, 22);
-            this.txtTelMovil.TabIndex = 13;
+            this.txtTelMovil.TabIndex = 10;
             this.txtTelMovil.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             this.txtTelMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
@@ -227,7 +227,7 @@
             this.rdbMasculino.Location = new System.Drawing.Point(150, 100);
             this.rdbMasculino.Name = "rdbMasculino";
             this.rdbMasculino.Size = new System.Drawing.Size(100, 19);
-            this.rdbMasculino.TabIndex = 15;
+            this.rdbMasculino.TabIndex = 2;
             this.rdbMasculino.TabStop = true;
             this.rdbMasculino.Text = "MASCULINO";
             this.rdbMasculino.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             this.rdbFemenino.Location = new System.Drawing.Point(279, 100);
             this.rdbFemenino.Name = "rdbFemenino";
             this.rdbFemenino.Size = new System.Drawing.Size(89, 19);
-            this.rdbFemenino.TabIndex = 16;
+            this.rdbFemenino.TabIndex = 3;
             this.rdbFemenino.TabStop = true;
             this.rdbFemenino.Text = "FEMENINO";
             this.rdbFemenino.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             this.txtCodFijo.MaxLength = 4;
             this.txtCodFijo.Name = "txtCodFijo";
             this.txtCodFijo.Size = new System.Drawing.Size(78, 22);
-            this.txtCodFijo.TabIndex = 18;
+            this.txtCodFijo.TabIndex = 7;
             this.txtCodFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtCodMovil
@@ -270,10 +270,10 @@
             this.txtCodMovil.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCodMovil.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodMovil.Location = new System.Drawing.Point(150, 227);
-            this.txtCodMovil.MaxLength = 6;
+            this.txtCodMovil.MaxLength = 4;
             this.txtCodMovil.Name = "txtCodMovil";
             this.txtCodMovil.Size = new System.Drawing.Size(78, 22);
-            this.txtCodMovil.TabIndex = 19;
+            this.txtCodMovil.TabIndex = 9;
             this.txtCodMovil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label9
@@ -304,7 +304,7 @@
             this.btnSalir.Location = new System.Drawing.Point(564, 303);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(132, 46);
-            this.btnSalir.TabIndex = 24;
+            this.btnSalir.TabIndex = 15;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
@@ -318,7 +318,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(426, 303);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(132, 46);
-            this.btnCancelar.TabIndex = 23;
+            this.btnCancelar.TabIndex = 14;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
@@ -332,7 +332,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(288, 303);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(132, 46);
-            this.btnGuardar.TabIndex = 22;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnCargar_Click);
             this.btnGuardar.MouseEnter += new System.EventHandler(this.btnGuardar_MouseEnter);
@@ -389,7 +389,7 @@
             this.btnBaja.Location = new System.Drawing.Point(374, 74);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(46, 44);
-            this.btnBaja.TabIndex = 28;
+            this.btnBaja.TabIndex = 12;
             this.btnBaja.UseVisualStyleBackColor = false;
             this.btnBaja.Click += new System.EventHandler(this.btnEliminar_Click);
             this.btnBaja.MouseEnter += new System.EventHandler(this.btnBaja_MouseEnter);
@@ -435,7 +435,7 @@
             this.btnAlta.Location = new System.Drawing.Point(426, 74);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(46, 44);
-            this.btnAlta.TabIndex = 35;
+            this.btnAlta.TabIndex = 13;
             this.btnAlta.UseVisualStyleBackColor = false;
             this.btnAlta.Click += new System.EventHandler(this.button1_Click_1);
             this.btnAlta.MouseEnter += new System.EventHandler(this.btnAlta_MouseEnter);
@@ -509,7 +509,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(716, 361);
+            this.ClientSize = new System.Drawing.Size(714, 361);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlta);
@@ -544,6 +544,10 @@
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(730, 400);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(730, 400);
             this.Name = "ClienteForm";
             this.Text = "CLIENTE";
             this.Load += new System.EventHandler(this.ClienteForm_Load);

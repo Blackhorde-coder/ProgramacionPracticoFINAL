@@ -19,9 +19,27 @@ namespace Prueba3form
 
         private void ReporteClientesForm_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'DataSetClientes.Cliente' Puede moverla o quitarla según sea necesario.
             this.ClienteTableAdapter.ReportClientes(this.DataSetClientes.Cliente);
             this.reportViewer1.RefreshReport();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if (rdbTodos.Checked == true)
+            {
+                this.ClienteTableAdapter.ReportClientes(this.DataSetClientes.Cliente);
+                this.reportViewer1.RefreshReport();
+            }
+            else if (rdbActivos.Checked == true)
+            {
+                this.ClienteTableAdapter.FillBy(this.DataSetClientes.Cliente, true);
+                this.reportViewer1.RefreshReport();
+            }
+            else if (rdbInactivos.Checked == false)
+            {
+                this.ClienteTableAdapter.FillBy(this.DataSetClientes.Cliente, false);
+                this.reportViewer1.RefreshReport();
+            }
         }
     }
 }

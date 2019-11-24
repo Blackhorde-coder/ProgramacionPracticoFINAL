@@ -16,6 +16,7 @@ namespace Prueba3form
         const int tam = 1000;
         Mascotacls [] arraymascotas = new Mascotacls [tam];
         Clientecls[] arrayclientes = new Clientecls[tam];
+        Mascotacls[] mascotaslista = new Mascotacls[tam];
         bool nuevo;
 
 
@@ -28,6 +29,9 @@ namespace Prueba3form
             botonesenable(false);
             cargarlistamascotas("mascota");
             groupBox1.Enabled = false;
+            rdbTodos.Checked = true;
+            listamascotas();
+            
         }
         private void CargarMascotaForm_Load(object sender, EventArgs e)
         {
@@ -37,7 +41,6 @@ namespace Prueba3form
             toolTip.SetToolTip(btnSalir, "SALIR");
             toolTip.SetToolTip(btnCliente, "CARGAR NUEVO CLIENTE");
             toolTip.SetToolTip(btnActualizarLista, "ACTUALIZAR LISTA DE CLIENTES");
-            toolTip.SetToolTip(btnEliminar, "ELIMINAR MASCOTA");
             toolTip.SetToolTip(btnNuevo, "NUEVA MASCOTA");
             toolTip.SetToolTip(btnEditar, "EDITAR MASCOTA");
         }
@@ -46,9 +49,11 @@ namespace Prueba3form
             botonesenable(true);
             listMascotas.Enabled = false;
             nuevo = true;
-            btnEliminar.Enabled = false;
             groupBox1.Enabled = true;
             colorex("white");
+            cargarlistamascotas("mascota");
+            listamascotas();
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -58,6 +63,8 @@ namespace Prueba3form
             groupBox1.Enabled = true;
             colorex("white");
             listMascotas.BackColor = Color.WhiteSmoke;
+            listamascotas();
+            listMascotas.SelectedIndex = 0;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -69,7 +76,7 @@ namespace Prueba3form
         {
             limpiarcampos();
             botonesenable(false);
-            groupBox1.Enabled = true;
+            groupBox1.Enabled = false;
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -96,11 +103,12 @@ namespace Prueba3form
                 m.Influenza = checkBoxInfluenza.Checked;
                 m.Leucemia = checkBoxLeucemia.Checked;
                 m.Clamidiosis = checkBoxClamidiosis.Checked;
+                m.Activo = checkBoxActivo.Checked;
             //cargar en la basde de datos
             
                 if (nuevo == true)
                 {
-                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id,moquillo,hepatitis,leptospirosis,parvovirosis,rabia,panleucopenia,influenza,leucemia,clamidiosis) values " +
+                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id,moquillo,hepatitis,leptospirosis,parvovirosis,rabia,panleucopenia,influenza,leucemia,clamidiosis, activo) values " +
                                           "('" + m.Nombre1 +
                                           "','" + m.FecNac +
                                           "'," + m.Tipo +
@@ -116,7 +124,8 @@ namespace Prueba3form
                                           ","+m.Panleucopenia+
                                           ","+m.Influenza+
                                           ","+m.Leucemia+
-                                          ","+m.Clamidiosis                                 
+                                          ","+m.Clamidiosis+
+                                          ","+m.Activo
                                           +")";
                     bd.modificarbd(consultasql);
                     cargarlistamascotas("mascota");
@@ -139,11 +148,11 @@ namespace Prueba3form
                                             "panleucopenia= "+m.Panleucopenia+","+
                                             "influenza= "+m.Influenza+ ","+
                                             "leucemia= "+m.Leucemia+ ","+
-                                            "clamidiosis= "+m.Clamidiosis+" "+
+                                            "clamidiosis= "+m.Clamidiosis+","+
+                                            "activo= "+m.Activo+" "+
                                             "where id= " + arraymascotas[listMascotas.SelectedIndex].Id;
                     bd.modificarbd(consultasql);
                     cargarlistamascotas("mascota");
-
                 }
                 botonesenable(false);
                 groupBox1.Enabled = false;
@@ -185,7 +194,6 @@ namespace Prueba3form
             {
                 groupBox1.Enabled = false;
             }
-
         }
 
         private void limpiarcampos()
@@ -198,8 +206,6 @@ namespace Prueba3form
             rdbHembra.Checked = false;
             txtPeso.Text = "";
             listCliente.SelectedIndex = -1;
-
-
         }
         private void cargarlalista(string nombretabla)
         {
@@ -275,6 +281,7 @@ namespace Prueba3form
                 mas.Influenza = bd.Reader.GetBoolean(14);
                 mas.Leucemia = bd.Reader.GetBoolean(15);
                 mas.Clamidiosis = bd.Reader.GetBoolean(16);
+                mas.Activo = bd.Reader.GetBoolean(17);
                 arraymascotas[c] = mas;
                 c++;
             }
@@ -283,7 +290,7 @@ namespace Prueba3form
             listMascotas.Items.Clear();
             for (int i = 0; i < c; i++)
             {
-                listMascotas.Items.Add(arraymascotas[i].Nombre1 + "  -------  " + arraymascotas[i].Descripcion);
+                listMascotas.Items.Add(arraymascotas[i].Nombre1 + "......" + arraymascotas[i].Descripcion);
             }
 
         }
@@ -356,7 +363,8 @@ namespace Prueba3form
             btnActualizarLista.Enabled = f;
             rdbHembra.Enabled = f;
             rdbMacho.Enabled = f;
-            btnEliminar.Enabled = f;
+            checkBoxActivo.Enabled = f;
+            groupBox3.Enabled = f;
 
             btnNuevo.Enabled = !f;
             btnSalir.Enabled = !f;
@@ -369,27 +377,28 @@ namespace Prueba3form
             if (listMascotas.SelectedIndex != -1)
             {
                 int sel = listMascotas.SelectedIndex;
-                txtNombre.Text = arraymascotas[sel].Nombre1;
-                txtDescripcion.Text = arraymascotas[sel].Descripcion;
-                txtPeso.Text =Convert.ToString(arraymascotas[sel].Peso);
-                if (arraymascotas[sel].Sexo == true)
+                txtNombre.Text = mascotaslista[sel].Nombre1;
+                txtDescripcion.Text = mascotaslista[sel].Descripcion;
+                txtPeso.Text =Convert.ToString(mascotaslista[sel].Peso);
+                if (mascotaslista[sel].Sexo == true)
                     rdbMacho.Checked = true;
                 else
                     rdbHembra.Checked = true;
-                dtpFechaNac.Value = arraymascotas[sel].FecNac;
-                checkBoxMoquillo.Checked = arraymascotas[sel].Moquillo;
-                checkBoxClamidiosis.Checked = arraymascotas[sel].Clamidiosis;
-                checkBoxHepatitis.Checked = arraymascotas[sel].Hepatitis;
-                checkBoxLeptospirosis.Checked = arraymascotas[sel].Leptospirosis;
-                checkBoxParvovirosis.Checked = arraymascotas[sel].Parvovirus;
-                checkBoxRabia.Checked = arraymascotas[sel].Rabica;
-                checkBoxPanleucopenia.Checked = arraymascotas[sel].Panleucopenia;
-                checkBoxInfluenza.Checked = arraymascotas[sel].Influenza;
-                checkBoxLeucemia.Checked = arraymascotas[sel].Leucemia;
-                cmbTipo.SelectedValue = arraymascotas[sel].Tipo;
+                dtpFechaNac.Value = mascotaslista[sel].FecNac;
+                checkBoxMoquillo.Checked = mascotaslista[sel].Moquillo;
+                checkBoxClamidiosis.Checked = mascotaslista[sel].Clamidiosis;
+                checkBoxHepatitis.Checked = mascotaslista[sel].Hepatitis;
+                checkBoxLeptospirosis.Checked = mascotaslista[sel].Leptospirosis;
+                checkBoxParvovirosis.Checked = mascotaslista[sel].Parvovirus;
+                checkBoxRabia.Checked = mascotaslista[sel].Rabica;
+                checkBoxPanleucopenia.Checked = mascotaslista[sel].Panleucopenia;
+                checkBoxInfluenza.Checked = mascotaslista[sel].Influenza;
+                checkBoxLeucemia.Checked = mascotaslista[sel].Leucemia;
+                cmbTipo.SelectedValue = mascotaslista[sel].Tipo;
+                checkBoxActivo.Checked = mascotaslista[sel].Activo;
                 for (int i = 0; i < c; i++)
                 {
-                    if (arrayclientes[i].ClienteID == arraymascotas[sel].Cliente.ClienteID)
+                    if (arrayclientes[i].ClienteID == mascotaslista[sel].Cliente.ClienteID)
                         listCliente.SelectedIndex = i;
                 }
             }
@@ -404,18 +413,56 @@ namespace Prueba3form
             else
                 e.Handled = true;
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void listamascotas()
         {
-            if (listMascotas.SelectedIndex != -1)
+            int c = arraymascotas.Count(x => x != null);
+            for (int i = 0; i < c; i++)
             {
-                int sel = listMascotas.SelectedIndex;
-                string deletesql = "delete from mascota where id= " + arraymascotas[sel].Id;
-                bd.modificarbd(deletesql);
-                cargarlistamascotas("mascota");
-                limpiarcampos();
+                mascotaslista[i] = null;
             }
+            listMascotas.Items.Clear();
+            int p = 0;
+            if (rdbActivo.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arraymascotas[i].Activo == true)
+                    {
+                        mascotaslista[p] = arraymascotas[i];
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
+                        p++;
+                    }
+                }
+            }
+            if (rdbInactivo.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arraymascotas[i].Activo == false)
+                    {
+                        mascotaslista[p] = arraymascotas[i];
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
+                        p++;
+                    }
+                }
+            }
+            if (rdbTodos.Checked == true)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (arraymascotas[i].Activo == true || arraymascotas[i].Activo == false)
+                    {
+                        mascotaslista[p] = arraymascotas[i];
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
+                        p++;
+                    }
+                }
+
+            }
+
         }
+
+
 
         private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -504,13 +551,25 @@ namespace Prueba3form
         {
             btnActualizarLista.BackColor = SystemColors.ActiveBorder;
         }
-        private void btnEliminar_MouseEnter(object sender, EventArgs e)
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
-            btnEliminar.BackColor = Color.Red;
+
         }
-        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+
+        private void rdbActivo_CheckedChanged(object sender, EventArgs e)
         {
-            btnEliminar.BackColor = SystemColors.ActiveBorder;
+            listamascotas();
+        }
+
+        private void rdbInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+            listamascotas();
+        }
+
+        private void rdbTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            listamascotas();
         }
     }
     
