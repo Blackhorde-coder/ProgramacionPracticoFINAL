@@ -51,6 +51,9 @@ namespace Prueba3form
             nuevo = true;
             groupBox1.Enabled = true;
             colorex("white");
+            cargarlistamascotas("mascota");
+            listamascotas();
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -60,6 +63,8 @@ namespace Prueba3form
             groupBox1.Enabled = true;
             colorex("white");
             listMascotas.BackColor = Color.WhiteSmoke;
+            listamascotas();
+            listMascotas.SelectedIndex = 0;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -103,7 +108,7 @@ namespace Prueba3form
             
                 if (nuevo == true)
                 {
-                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id,moquillo,hepatitis,leptospirosis,parvovirosis,rabia,panleucopenia,influenza,leucemia,clamidiosis) values " +
+                    string consultasql = "insert into mascota (Nombre,fecha_nac,tipo,sexo,peso,descripcion,cliente_id,moquillo,hepatitis,leptospirosis,parvovirosis,rabia,panleucopenia,influenza,leucemia,clamidiosis, activo) values " +
                                           "('" + m.Nombre1 +
                                           "','" + m.FecNac +
                                           "'," + m.Tipo +
@@ -286,7 +291,7 @@ namespace Prueba3form
             listMascotas.Items.Clear();
             for (int i = 0; i < c; i++)
             {
-                listMascotas.Items.Add(arraymascotas[i].Nombre1 + "  -------  " + arraymascotas[i].Descripcion);
+                listMascotas.Items.Add(arraymascotas[i].Nombre1 + "......" + arraymascotas[i].Descripcion);
             }
 
         }
@@ -425,7 +430,7 @@ namespace Prueba3form
                     if (arraymascotas[i].Activo == true)
                     {
                         mascotaslista[p] = arraymascotas[i];
-                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + " " + mascotaslista[p].Descripcion);
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
                         p++;
                     }
                 }
@@ -437,7 +442,7 @@ namespace Prueba3form
                     if (arraymascotas[i].Activo == false)
                     {
                         mascotaslista[p] = arraymascotas[i];
-                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + " " + mascotaslista[p].Descripcion);
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
                         p++;
                     }
                 }
@@ -449,7 +454,7 @@ namespace Prueba3form
                     if (arraymascotas[i].Activo == true || arraymascotas[i].Activo == false)
                     {
                         mascotaslista[p] = arraymascotas[i];
-                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + " " + mascotaslista[p].Descripcion);
+                        listMascotas.Items.Add(mascotaslista[p].Nombre1 + "......" + mascotaslista[p].Descripcion);
                         p++;
                     }
                 }

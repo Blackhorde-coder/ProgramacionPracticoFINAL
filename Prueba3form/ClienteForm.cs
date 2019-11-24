@@ -57,6 +57,8 @@ namespace Prueba3form
             btnAlta.Enabled = false;
             cambiarcolortxt("white");
             groupBox1.Enabled = false;
+            cargarlalista("cliente");
+            clienteplista();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,6 +66,9 @@ namespace Prueba3form
             activarbotones(false);
             isnew = false;
             cambiarcolortxt("white");
+            cargarlalista("cliente");
+            clienteplista();
+            listBox1.SelectedIndex = 0;
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -388,10 +393,10 @@ namespace Prueba3form
                 m.Nombre1 = bd.Reader.GetString(1);
                 m.FecNac = bd.Reader.GetDateTime(2);
                 m.Tipo = bd.Reader.GetInt32(3);
-                m.Descripcion = bd.Reader.GetString(4);
+                m.Descripcion = bd.Reader.GetString(6);
                 Clientecls c = new Clientecls();
                 m.Cliente = c;
-                m.Cliente.ClienteID = bd.Reader.GetInt32(5);
+                m.Cliente.ClienteID = bd.Reader.GetInt32(7);
                 arraymascotas[cm] = m;
                 cm++;
             }
@@ -459,11 +464,28 @@ namespace Prueba3form
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string consultasql = "update cliente set activo = false where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
-            bd.modificarbd(consultasql);
-            cargarlalista("cliente");
-            clienteplista();
-            activarbotones(true);
+            if (revisarmascotacliente(clientesplista[listBox1.SelectedIndex].ClienteID) == true)
+            {
+                string consultasql = "update cliente set activo = false where id= " + clientesplista[listBox1.SelectedIndex].ClienteID;
+                bd.modificarbd(consultasql);
+                cargarlalista("cliente");
+                clienteplista();
+                activarbotones(true);
+            }
+        }
+        private bool revisarmascotacliente(int idcliente)
+        {
+            arraymas();
+            int c = arraymascotas.Count(x => x != null);
+            for (int i = 0; i < c; i++)
+            {
+                if (arraymascotas[i].Cliente.ClienteID == idcliente)
+                {
+                    MessageBox.Show("EL CLIENTE TIENE UNA MASCOTA ASIGNADA: "+ arraymascotas[i].Nombre1 +", DE BAJA LA MISMo ANTES DE CONTINUAR");
+                    return false;
+                }
+            }
+            return true;
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
