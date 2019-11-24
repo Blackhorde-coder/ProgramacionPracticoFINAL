@@ -35,7 +35,7 @@ namespace Prueba3form
                 this.ClienteTableAdapter.FillBy(this.DataSetClientes.Cliente, true);
                 this.reportViewer1.RefreshReport();
             }
-            else if (rdbInactivos.Checked == false)
+            else if (rdbInactivos.Checked == true)
             {
                 this.ClienteTableAdapter.FillBy(this.DataSetClientes.Cliente, false);
                 this.reportViewer1.RefreshReport();

@@ -965,21 +965,21 @@ FROM            ((Cliente INNER JOIN
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente
+            this._commandCollection[1].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente, Mascota.activo
 FROM            ((Cliente INNER JOIN
                          Mascota ON Cliente.Id = Mascota.Cliente_Id) INNER JOIN
                          tipo_id ON Mascota.Tipo = tipo_id.Id)
-WHERE        (Mascota.Fecha_nac >= ? AND Mascota.Fecha_nac <= ?)";
+WHERE        (Mascota.Fecha_nac >= ?) AND (Mascota.Fecha_nac <= ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente
+            this._commandCollection[2].CommandText = @"SELECT        Mascota.Nombre, Mascota.Fecha_nac, tipo_id.tipo, Mascota.Descripcion, Cliente.Nombre + ' ' + Cliente.Apellido AS Cliente, Mascota.activo
 FROM            ((Cliente INNER JOIN
                          Mascota ON Cliente.Id = Mascota.Cliente_Id) INNER JOIN
                          tipo_id ON Mascota.Tipo = tipo_id.Id)
-WHERE        (Mascota.Fecha_nac >= ? AND Mascota.Fecha_nac <= ?) and (mascota.activo = ?)";
+WHERE        (Mascota.Fecha_nac >= ?) AND (Mascota.Fecha_nac <= ?) AND (Mascota.activo = ?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_nac1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_nac", global::System.Data.DataRowVersion.Current, false, null));
