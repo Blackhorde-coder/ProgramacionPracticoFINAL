@@ -82,7 +82,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(288, 321);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(132, 46);
-            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnCargar_Click);
             this.btnGuardar.MouseEnter += new System.EventHandler(this.btnGuardar_MouseEnter);
@@ -96,7 +96,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(426, 321);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(132, 46);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
@@ -111,7 +111,7 @@
             this.btnSalir.Location = new System.Drawing.Point(564, 321);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(132, 46);
-            this.btnSalir.TabIndex = 2;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
@@ -125,7 +125,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(119, 67);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(200, 23);
-            this.cmbTipo.TabIndex = 3;
+            this.cmbTipo.TabIndex = 7;
             this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             this.cmbTipo.SelectionChangeCommitted += new System.EventHandler(this.cmbTipo_SelectionChangeCommitted);
             // 
@@ -137,7 +137,7 @@
             this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 22);
-            this.txtNombre.TabIndex = 4;
+            this.txtNombre.TabIndex = 5;
             // 
             // txtDescripcion
             // 
@@ -147,7 +147,7 @@
             this.txtDescripcion.MaxLength = 30;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(200, 22);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.TabIndex = 9;
             // 
             // label1
             // 
@@ -178,7 +178,7 @@
             this.dtpFechaNac.Location = new System.Drawing.Point(119, 41);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(200, 22);
-            this.dtpFechaNac.TabIndex = 8;
+            this.dtpFechaNac.TabIndex = 6;
             // 
             // label3
             // 
@@ -209,7 +209,7 @@
             this.listCliente.Location = new System.Drawing.Point(63, 8);
             this.listCliente.Name = "listCliente";
             this.listCliente.Size = new System.Drawing.Size(200, 154);
-            this.listCliente.TabIndex = 11;
+            this.listCliente.TabIndex = 3;
             // 
             // label5
             // 
@@ -229,7 +229,7 @@
             this.btnCliente.Location = new System.Drawing.Point(269, 8);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(100, 38);
-            this.btnCliente.TabIndex = 13;
+            this.btnCliente.TabIndex = 1;
             this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             this.btnCliente.MouseEnter += new System.EventHandler(this.btnCliente_MouseEnter);
@@ -243,7 +243,7 @@
             this.txtPeso.MaxLength = 8;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(200, 22);
-            this.txtPeso.TabIndex = 14;
+            this.txtPeso.TabIndex = 8;
             this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // label6
@@ -264,7 +264,7 @@
             this.btnActualizarLista.Location = new System.Drawing.Point(269, 52);
             this.btnActualizarLista.Name = "btnActualizarLista";
             this.btnActualizarLista.Size = new System.Drawing.Size(100, 38);
-            this.btnActualizarLista.TabIndex = 16;
+            this.btnActualizarLista.TabIndex = 2;
             this.btnActualizarLista.UseVisualStyleBackColor = false;
             this.btnActualizarLista.Click += new System.EventHandler(this.btnActualizarLista_Click);
             this.btnActualizarLista.MouseEnter += new System.EventHandler(this.btnActualizarLista_MouseEnter);
@@ -277,7 +277,7 @@
             this.rdbMacho.Location = new System.Drawing.Point(325, 46);
             this.rdbMacho.Name = "rdbMacho";
             this.rdbMacho.Size = new System.Drawing.Size(73, 19);
-            this.rdbMacho.TabIndex = 17;
+            this.rdbMacho.TabIndex = 10;
             this.rdbMacho.TabStop = true;
             this.rdbMacho.Text = "MACHO";
             this.rdbMacho.UseVisualStyleBackColor = true;
@@ -289,7 +289,7 @@
             this.rdbHembra.Location = new System.Drawing.Point(325, 69);
             this.rdbHembra.Name = "rdbHembra";
             this.rdbHembra.Size = new System.Drawing.Size(79, 19);
-            this.rdbHembra.TabIndex = 18;
+            this.rdbHembra.TabIndex = 11;
             this.rdbHembra.TabStop = true;
             this.rdbHembra.Text = "HEMBRA";
             this.rdbHembra.UseVisualStyleBackColor = true;
@@ -322,7 +322,7 @@
             this.btnEditar.Location = new System.Drawing.Point(150, 321);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(132, 46);
-            this.btnEditar.TabIndex = 32;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             this.btnEditar.MouseEnter += new System.EventHandler(this.btnEditar_MouseEnter);
@@ -336,7 +336,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(12, 321);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(132, 46);
-            this.btnNuevo.TabIndex = 31;
+            this.btnNuevo.TabIndex = 0;
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -368,7 +368,7 @@
             this.groupBox1.Location = new System.Drawing.Point(431, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(127, 282);
-            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VACUNAS";
             // 
